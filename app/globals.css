@@ -2,16 +2,22 @@
 
 :root {
   --background: #ffffff;
-  --foreground: #171717;
+  --foreground: #666666;
+  --site-green: #00d6ba;
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --color-site-green: var(--site-green);
+  --font-sans: var(--font-poppins);
+  --font-display: var(--font-permanent-marker);
+  --font-cursive: var(--font-dancing-script);
 }
 
+.font-cursive {
+  font-family: var(--font-cursive);
+}
 @media (prefers-color-scheme: dark) {
   :root {
     --background: #0a0a0a;
@@ -22,5 +28,29 @@
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+}
+h1{
+  font-family: var(--font-display);
+}
+h2{
+  color:#616e81;
+}
+
+.btn{
+  @apply  flex text-white font-semibold cursor-pointer rounded-[50px] hover:opacity-80 transition-all duration-300 self-start;
+}
+.primary-button{
+  @apply bg-site-green px-6 py-2;
+}
+.wrapper-container{
+  @apply flex flex-col max-w-[1600px];
+}
+.main-wrapper{
+  @apply flex  w-full max-w-[980px]  mx-auto;
+}
+.nav ul li a{
+  @apply text-[17px] uppercase  text-[#103160] hover:text-blue-900 transition-colors duration-300;
+}
+.about-images .image{
+  @apply border-4 border-sky-50 shadow-[inset_2px_4px_6px_rgba(255,255,255,0.6),_0_10px_20px_rgba(0,0,0,0.3)] drop-shadow-lg transition-transform duration-300 hover:scale-105 hover:z-20;
 }
