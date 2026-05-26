@@ -1,6 +1,6 @@
 "use client";
 import { useRef } from 'react';
-import { Swiper, SwiperSlide } from 'swiper/react';
+import { Swiper, SwiperSlide, SwiperRef } from 'swiper/react';
 import { Navigation, Pagination } from 'swiper/modules';
 import { FaStar, FaQuoteLeft, FaArrowLeft, FaArrowRight } from 'react-icons/fa';
 
@@ -57,7 +57,7 @@ const REVIEWS = [
 ];
 
 export default function TestimonialsSection() {
-  const swiperRef = useRef(null);
+const swiperRef = useRef<SwiperRef>(null);
 
   return (
     <section className="py-24 bg-[#0a6675] text-white px-6 md:px-12 border-t border-slate-900 relative overflow-hidden">

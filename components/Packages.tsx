@@ -2,7 +2,7 @@
 import Image from 'next/image';
 import { useRef } from 'react';
 // Import Swiper React components and required styles
-import { Swiper, SwiperSlide } from 'swiper/react';
+import { Swiper, SwiperSlide, SwiperRef } from 'swiper/react';
 import { Navigation } from 'swiper/modules';
 
 import 'swiper/css';
@@ -76,8 +76,7 @@ const PACKAGES = [
 ];
 
 export default function Packages() {
-  const swiperRef = useRef(null);
-
+const swiperRef = useRef<SwiperRef>(null);
   return (
     <section className="py-24 bg-white text-white px-6 md:px-12 border-t border-slate-900 relative overflow-hidden">
       <div className="max-w-7xl mx-auto">
