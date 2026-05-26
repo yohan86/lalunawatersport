@@ -4,6 +4,10 @@ on:
   push:
     branches: ["main"]
 
+# Force javascript actions to use Node 24 ahead of the June deadline
+env:
+  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
+
 permissions:
   contents: read
   pages: write
@@ -26,14 +30,14 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: "20"
+          node-version: "24" # Upgraded local compilation runner to Node 24
           cache: 'npm'
 
       - name: Setup Pages
         uses: actions/configure-pages@v4
 
       - name: Install Dependencies
-        run: npm ci
+        run: npm install
 
       - name: Build Next.js Static Site
         run: npm run build
