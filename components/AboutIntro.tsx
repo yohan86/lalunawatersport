@@ -5,7 +5,7 @@ import {prefix} from "../utils/prefix";
 
 const AboutIntro = () => {
   return (
-    <section className="main-wrapper flex-col-reverse md:flex-row justify-between gap-2 my-10 md:my-25">
+    <section className="main-wrapper bg-white flex-col-reverse md:flex-row justify-between gap-2 my-10 md:my-25">
       <div className="about-images grid grid-cols-2 w-full md:w-125 relative  items-start">
         
         <div className="image relative w-40 h-40 md:w-75 md:h-75 rounded-full overflow-hidden shrink-0 ">
