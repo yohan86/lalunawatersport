@@ -80,14 +80,14 @@ const PACKAGES = [
 export default function Packages() {
 const swiperRef = useRef<SwiperRef>(null);
   return (
-    <section className="py-24 bg-white text-white px-6 md:px-12 border-t border-slate-900 relative overflow-hidden">
+    <section className="py-12 md:py-24 bg-white text-white px-6 md:px-12 border-t border-slate-900 relative overflow-hidden">
       <div className="max-w-7xl mx-auto">
         
         {/* Header Block with Navigation Arrows */}
         <div className="flex flex-col md:flex-row md:justify-between md:items-end mb-16 gap-6">
           <div className="text-left">
             <h3 className="font-display text-[28px] text-site-green">Save with Bundles</h3>
-            <h2 className="text-4xl md:text-5xl font-black uppercase tracking-wider mt-2">
+            <h2 className="text-[30px] leading-8.5 md:text-5xl font-black uppercase tracking-wider mt-2">
               Our Adventure Packages
             </h2>
             <p className="text-slate-400 mt-3 max-w-xl text-base">

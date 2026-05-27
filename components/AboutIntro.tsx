@@ -11,15 +11,15 @@ const AboutIntro = () => {
         <div className="image relative w-40 h-40 md:w-75 md:h-75 rounded-full overflow-hidden shrink-0 ">
           <Image src={`${prefix}/images/sports/sport-2.jpg`} alt="Sports Image 2" fill className="object-cover"/>
         </div>
-        <div className="image relative w-30 h-30 md:w-40 md:h-40 rounded-full overflow-hidden md:ml-20 mt-15 shrink-0">
+        <div className="image relative w-30 h-30 md:w-40 md:h-40 rounded-full overflow-hidden md:ml-20 mt-6 md:mt-15 shrink-0">
           <Image src={`${prefix}/images/sports/sport-4.jpg`} alt="Sports Image 2" fill className="object-cover"/>
         </div>
-        <div className="image relative w-30 h-30 md:w-40 md:h-40 rounded-full overflow-hidden md:-mt-25 ml-15 shrink-0">
+        <div className="image relative w-30 h-30 md:w-40 md:h-40 rounded-full overflow-hidden ml-10 mt-5 md:-mt-10 md:ml-15 shrink-0">
           <Image src={`${prefix}/images/sports/sport-1.jpg`} alt="Sports Image 3" fill className="object-cover"/>
         </div>
         
         
-        <div className="image relative w-40 h-40 md:w-75 md:h-75 rounded-full overflow-hidden md:-mt-50  shrink-0">
+        <div className="image relative w-40 h-40 md:w-75 md:h-75 rounded-full overflow-hidden md:-mt-30  shrink-0">
           <Image src={`${prefix}/images/sports/sport-3.jpg`} alt="Sports Image 1" fill className="object-cover"/>
         </div>
       </div>

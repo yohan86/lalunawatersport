@@ -29,14 +29,14 @@ export default function StaticCTA() {
         <div className="relative z-20 px-6 py-20 md:p-16 lg:p-24 text-center mx-auto flex flex-col items-center">
           
           {/* Animated Pulse Badge */}
-          <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-[18px] font-extrabold uppercase tracking-widest bg-cyan-500/10 text-cyan-400 border border-cyan-500/20 mb-6 animate-pulse select-none">
-            <span className="w-2 h-2 bg-cyan-400 rounded-full" />
+          <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-[12px] md:text-[18px] font-extrabold uppercase tracking-widest bg-cyan-500/10 text-cyan-400 border border-cyan-500/20 mb-6 animate-pulse select-none">
+            <span className="w-2 h-2 bg-cyan-400 rounded-full -mt-4 md:mt-0" />
             Limited Slots Available For This Week
           </span>
 
           {/* Main Title Headline */}
           <h2 className="text-3xl md:text-5xl font-black tracking-wider text-[#b2e0c5]! leading-tight drop-shadow-lg">
-            <span className="flex">Ready to Make a <span className="text-cyan-400 font-cursive ml-4">Splash</span></span> in Bentota?
+            <span className="inline-block md:flex">Ready to Make a <span className="text-cyan-400 font-cursive ml-4">Splash</span></span> in Bentota?
           </h2>
 
           {/* Subtext Description */}
