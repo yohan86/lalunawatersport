@@ -28,6 +28,7 @@
 body {
   background: var(--background);
   color: var(--foreground);
+  @apply text-[15px] md:text-[16px];
 }
 h1{
   font-family: var(--font-display);
@@ -46,7 +47,7 @@ h2{
   @apply flex flex-col max-w-[1600px];
 }
 .main-wrapper{
-  @apply flex  w-full max-w-[980px]  mx-auto;
+  @apply flex  w-[92%] md:w-full max-w-[980px]  mx-auto;
 }
 .nav ul li a{
   @apply text-[17px] uppercase  text-[#103160] hover:text-blue-900 transition-colors duration-300;
