@@ -1,5 +1,7 @@
 import Image from 'next/image';
 import { FaCalendarCheck, FaWhatsapp } from 'react-icons/fa';
+import { prefix } from '@/utils/prefix';
+
 
 export default function StaticCTA() {
   return (
@@ -11,7 +13,7 @@ export default function StaticCTA() {
         {/* Static Background Image Layer */}
         <div className="absolute inset-0 z-0 select-none pointer-events-none">
           <Image 
-            src="/images/cta-bg.jpg" // Set your favorite Fly Fish or Jet Ski action shot here
+            src={`${prefix}/images/cta-bg.jpg`} // Set your favorite Fly Fish or Jet Ski action shot here
             alt="La Luna Adventure Playground"
             fill
             className="object-cover brightness-[0.35]" // Keeps image dark so white text stands out beautifully

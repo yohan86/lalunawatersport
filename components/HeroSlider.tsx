@@ -5,6 +5,8 @@ import "swiper/css"
 import { Navigation, Pagination, Autoplay } from "swiper/modules"
 import Link from "next/link"
 import { FaArrowRightLong } from "react-icons/fa6";
+import { prefix } from '@/utils/prefix';
+
 
 
 const HeroSlider = () => {
@@ -33,17 +35,17 @@ const HeroSlider = () => {
             >
                 <SwiperSlide>
                     <div className="hero-slider__item relative w-full h-[560px]">
-                        <Image src="/images/slider/slider-1.jpg" alt="Hero Image" fill className="object-cover" />
+                        <Image src={`${prefix}/images/slider/slider-1.jpg`} alt="Hero Image" fill className="object-cover" />
                     </div>
                 </SwiperSlide>
                 <SwiperSlide>
                     <div className="hero-slider__item relative w-full h-[560px]">
-                        <Image src="/images/slider/slider-2.jpg" alt="Hero Image" fill className="object-cover" />
+                        <Image src={`${prefix}/images/slider/slider-2.jpg`} alt="Hero Image" fill className="object-cover" />
                     </div>
                 </SwiperSlide>
                 <SwiperSlide>
                     <div className="hero-slider__item relative w-full h-[560px]">
-                        <Image src="/images/slider/slider-3.jpg" alt="Hero Image" fill className="object-cover" />
+                        <Image src={`${prefix}/images/slider/slider-3.jpg`} alt="Hero Image" fill className="object-cover" />
                     </div>
                 </SwiperSlide>
             </Swiper>

@@ -4,6 +4,8 @@ import { useRef } from 'react';
 // Import Swiper React components and required styles
 import { Swiper, SwiperSlide, SwiperRef } from 'swiper/react';
 import { Navigation } from 'swiper/modules';
+import { prefix } from '@/utils/prefix';
+
 
 import 'swiper/css';
 import 'swiper/css/navigation';
@@ -138,7 +140,7 @@ const swiperRef = useRef<SwiperRef>(null);
                 <div>
                   <div className="relative w-full h-44 overflow-hidden">
                     <Image 
-                      src={pkg.img} 
+                      src={`${prefix}${pkg.img}`} 
                       alt={pkg.name} 
                       fill 
                       draggable={false}

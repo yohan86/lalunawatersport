@@ -1,33 +1,35 @@
 "use client";
 import { useState } from 'react';
 import Image from 'next/image';
+import { prefix } from '@/utils/prefix';
+
 
 const SERVICES = [
   // 1. THRILLS (High Speed)
-  { id: 1, name: 'Jet Ski', cat: 'thrill', img: '/images/services/jetski.jpg', size: 'large' },
-  { id: 2, name: 'Water Ski', cat: 'thrill', img: '/images/services/water-ski2.jpg', size: 'small' },
-  { id: 3, name: 'Fly Fish', cat: 'thrill', img: '/images/services/fly-fish2.jpg', size: 'small' },
-  { id: 4, name: 'Speed Boat Ride', cat: 'thrill', img: '/images/services/speedboat.jpg', size: 'small' },
-  { id: 5, name: 'Wave Surfing', cat: 'thrill', img: '/images/services/wavesurfing.jpg', size: 'small' },
+  { id: 1, name: 'Jet Ski', cat: 'thrill', img: `${prefix}/images/services/jetski.jpg`, size: 'large' },
+  { id: 2, name: 'Water Ski', cat: 'thrill', img: `${prefix}/images/services/water-ski2.jpg`, size: 'small' },
+  { id: 3, name: 'Fly Fish', cat: 'thrill', img: `${prefix}/images/services/fly-fish2.jpg`, size: 'small' },
+  { id: 4, name: 'Speed Boat Ride', cat: 'thrill', img: `${prefix}/images/services/speedboat.jpg`, size: 'small' },
+  { id: 5, name: 'Wave Surfing', cat: 'thrill', img: `${prefix}/images/services/wavesurfing.jpg`, size: 'small' },
 
   // 2. TOWABLES (Fun Rides)
-  { id: 6, name: 'Tube Riding', cat: 'towable', img: '/images/services/tuberide.jpg', size: 'small' },
-  { id: 7, name: 'Banana Boat Riding', cat: 'towable', img: '/images/services/bananaboat.jpg', size: 'large' },
-  { id: 8, name: 'Sofa Riding', cat: 'towable', img: '/images/services/sofaride.jpg', size: 'small' },
-  { id: 9, name: 'Lay Down Riding', cat: 'towable', img: '/images/services/laydown.jpg', size: 'small' },
+  { id: 6, name: 'Tube Riding', cat: 'towable', img: `${prefix}/images/services/tuberide.jpg`, size: 'small' },
+  { id: 7, name: 'Banana Boat Riding', cat: 'towable', img: `${prefix}/images/services/bananaboat.jpg`, size: 'large' },
+  { id: 8, name: 'Sofa Riding', cat: 'towable', img: `${prefix}/images/services/sofaride.jpg`, size: 'small' },
+  { id: 9, name: 'Lay Down Riding', cat: 'towable', img: `${prefix}/images/services/laydown.jpg`, size: 'small' },
 
   // 3. PADDLES & TOURS (River & Ocean Safaris)
-  { id: 10, name: 'Yacht Cruise Tours', cat: 'safari', img: '/images/services/yacht.jpg', size: 'large' },
-  { id: 11, name: 'Boat Trip', cat: 'safari', img: '/images/services/boattrip.jpg', size: 'small' },
-  { id: 12, name: 'Kayak', cat: 'safari', img: '/images/services/kayak.jpg', size: 'small' },
-  { id: 13, name: 'Canoeing', cat: 'safari', img: '/images/services/canoeing.jpg', size: 'small' },
-  { id: 14, name: 'Stand-up Paddling', cat: 'safari', img: '/images/services/sup.jpg', size: 'small' },
-  { id: 15, name: 'Fishing Trips', cat: 'safari', img: '/images/services/fishing.jpg', size: 'small' },
+  { id: 10, name: 'Yacht Cruise Tours', cat: 'safari', img: `${prefix}/images/services/yacht.jpg`, size: 'large' },
+  { id: 11, name: 'Boat Trip', cat: 'safari', img: `${prefix}/images/services/boattrip.jpg`, size: 'small' },
+  { id: 12, name: 'Kayak', cat: 'safari', img: `${prefix}/images/services/kayak.jpg`, size: 'small' },
+  { id: 13, name: 'Canoeing', cat: 'safari', img: `${prefix}/images/services/canoeing.jpg`, size: 'small' },
+  { id: 14, name: 'Stand-up Paddling', cat: 'safari', img: `${prefix}/images/services/sup.jpg`, size: 'small' },
+  { id: 15, name: 'Fishing Trips', cat: 'safari', img: `${prefix}/images/services/fishing.jpg`, size: 'small' },
 
   // 4. UNDERWATER & WINDS
-  { id: 16, name: 'Deep Sea Diving', cat: 'underwater', img: '/images/services/diving.jpg', size: 'large' },
-  { id: 17, name: 'Snorkeling', cat: 'underwater', img: '/images/services/snorkeling.jpg', size: 'small' },
-  { id: 18, name: 'Wind Surfing', cat: 'underwater', img: '/images/services/windsurfing.jpg', size: 'small' },
+  { id: 16, name: 'Deep Sea Diving', cat: 'underwater', img: `${prefix}/images/services/diving.jpg`, size: 'large' },
+  { id: 17, name: 'Snorkeling', cat: 'underwater', img: `${prefix}/images/services/snorkeling.jpg`, size: 'small' },
+  { id: 18, name: 'Wind Surfing', cat: 'underwater', img: `${prefix}/images/services/windsurfing.jpg`, size: 'small' },
 ];
 
 const CATEGORIES = [

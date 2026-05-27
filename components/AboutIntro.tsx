@@ -1,5 +1,6 @@
 import Image from "next/image"
 import { FaArrowRightLong } from "react-icons/fa6";
+import {prefix} from "../utils/prefix";
 
 
 const AboutIntro = () => {
@@ -8,18 +9,18 @@ const AboutIntro = () => {
       <div className="about-images grid grid-cols-2 w-125 relative  items-start">
         
         <div className="image relative w-75 h-75 rounded-full overflow-hidden shrink-0 ">
-          <Image src="/images/sports/sport-2.jpg" alt="Sports Image 2" fill className="object-cover"/>
+          <Image src={`${prefix}/images/sports/sport-2.jpg`} alt="Sports Image 2" fill className="object-cover"/>
         </div>
         <div className="image relative w-40 h-40 rounded-full overflow-hidden ml-20 mt-15 shrink-0">
-          <Image src="/images/sports/sport-4.jpg" alt="Sports Image 2" fill className="object-cover"/>
+          <Image src={`${prefix}/images/sports/sport-4.jpg`} alt="Sports Image 2" fill className="object-cover"/>
         </div>
         <div className="image relative w-40 h-40 rounded-full overflow-hidden -mt-25 ml-15 shrink-0">
-          <Image src="/images/sports/sport-1.jpg" alt="Sports Image 3" fill className="object-cover"/>
+          <Image src={`${prefix}/images/sports/sport-1.jpg`} alt="Sports Image 3" fill className="object-cover"/>
         </div>
         
         
         <div className="image relative w-75 h-75 rounded-full overflow-hidden -mt-50  shrink-0">
-          <Image src="/images/sports/sport-3.jpg" alt="Sports Image 1" fill className="object-cover"/>
+          <Image src={`${prefix}/images/sports/sport-3.jpg`} alt="Sports Image 1" fill className="object-cover"/>
         </div>
       </div>
       <div className="about-intro flex flex-col w-[40%]">

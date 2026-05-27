@@ -1,7 +1,7 @@
 import Link from 'next/link';
 import Image from 'next/image';
 import { FaWhatsapp, FaPhoneAlt, FaEnvelope, FaMapMarkerAlt, FaFacebookF, FaInstagram, FaYoutube } from 'react-icons/fa';
-
+import { prefix } from '@/utils/prefix';
 export default function Footer() {
   return (
     <footer className="bg-slate-950 text-slate-400 border-t border-slate-900 pt-20 pb-8 px-6 md:px-12">
@@ -14,7 +14,7 @@ export default function Footer() {
           <div className="flex flex-col gap-4">
             <div className="flex items-center gap-3">
             <div className="relative w-20 h-20">
-                <Image src="/laluna-logo.png" alt="La Luna Logo" fill className="object-cover" />
+                <Image src={`${prefix}/laluna-logo.png`} alt="La Luna Logo" fill className="object-cover" />
             </div>
             <h3 className="text-2xl font-black text-white tracking-wider uppercase">
               La Luna<span className="text-cyan-400">.</span>
