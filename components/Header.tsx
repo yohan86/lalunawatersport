@@ -5,11 +5,13 @@ import Image from "next/image";
 import Link from "next/link";
 import { FaBars, FaTimes } from "react-icons/fa"; // Imported from react-icons
 import { prefix } from '@/utils/prefix';
+import { usePathname } from "next/navigation";
 
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
 
   const toggleMenu = () => setIsOpen(!isOpen);
+  const pathname = usePathname();
 
   // Nav links helper array to keep code clean and prevent repeating links
   const leftLinks = [
@@ -33,11 +35,18 @@ const Header = () => {
         {/* --- DESKTOP LEFT NAVIGATION --- */}
         <nav className="hidden md:block">
           <ul className="flex flex-row gap-8 font-medium text-gray-700">
-            {leftLinks.map((link) => (
-              <li key={link.href} className="hover:text-black transition-colors">
-                <Link href={link.href}>{link.name}</Link>
+            {leftLinks.map((link) => {
+              const leftActive = link.href === "/" ? pathname === "/" : pathname.startsWith(link.href);
+              return(
+              <li key={link.href} className={`relative ${leftActive ? "text-site-green" : "hover:text-site-green transition-colors"}`}>
+                <Link href={link.href}>{link.name}
+                {leftActive && (
+                  <span className="absolute bottom-0 left-0 w-full h-[2px] bg-site-green rounded-full" />
+                )}
+                </Link>
               </li>
-            ))}
+              )
+          })}
           </ul>
         </nav>
 
