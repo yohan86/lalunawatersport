@@ -21,7 +21,7 @@ const Header = () => {
   ];
 
   const rightLinks = [
-    { name: "Packages", href: "/Packages" },
+    { name: "Packages", href: "/packages" },
     { name: "Contact", href: "/contact" },
     { name: "Blog", href: "/blog" },
   ];
@@ -66,11 +66,18 @@ const Header = () => {
         {/* --- DESKTOP RIGHT NAVIGATION --- */}
         <nav className="hidden md:block">
           <ul className="flex flex-row gap-8 font-medium text-gray-700">
-            {rightLinks.map((link) => (
-              <li key={link.href} className="hover:text-black transition-colors">
-                <Link href={link.href}>{link.name}</Link>
-              </li>
-            ))}
+            {rightLinks.map((link) => {
+              const rightActive = pathname === "/" ? true : pathname.startsWith(link.href);
+              return(
+                <li key={link.href} className={`relative ${rightActive ? "text-site-green": "hover:text-site-green transition-colors"} `}>
+                  <Link href={link.href}>{link.name}
+                  {rightActive && (
+                    <span className="absolute bottom-0 left-0 w-full h-[2px] bg-site-green rounded-full" />
+                  )}
+                  </Link>
+                </li>
+              )
+            })}
           </ul>
         </nav>
 
