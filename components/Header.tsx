@@ -67,7 +67,7 @@ const Header = () => {
         <nav className="hidden md:block">
           <ul className="flex flex-row gap-8 font-medium text-gray-700">
             {rightLinks.map((link) => {
-              const rightActive = pathname === "/" ? true : pathname.startsWith(link.href);
+              const rightActive = link.href === "/" ? pathname === "/" : pathname.startsWith(link.href);
               return(
                 <li key={link.href} className={`relative ${rightActive ? "text-site-green": "hover:text-site-green transition-colors"} `}>
                   <Link href={link.href}>{link.name}

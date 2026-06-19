@@ -16,9 +16,8 @@ const HeroSlider = () => {
                 <div className="absolute flex flex-col w-[90%] items-center text-center justify-center top-20 left-[5%] text-white  z-10 [text-shadow:6px_4px_12px_#0a2668cc]">
                     <p className="font-cursive text-[28px] md:text-[40px] font-medium">Come and fun with</p>
                     <h1 className="text-[35px] md:text-[72px]">La Luna Water Sports Center</h1>
-                    <Link href="#services" className="flex sm:text-[14px] mt-6 py-2 px-6 md:py-3 font-bold bg-[#00d6ba] text-white rounded-4xl hover:bg-[#3eb6a6] transition-all duration-300 border-2 border-[#fff] gap-3 hover:gap-4">
-                        <span className="">Explore Our Services</span><FaArrowRightLong size={24} className="mt-[2px]" />
-
+                    <Link href="#services" className="flex text-[16px] mt-6 py-2 px-6 md:py-3 font-bold bg-[#00d6ba] text-white rounded-4xl hover:bg-[#3eb6a6] transition-all duration-300 border-2 border-[#fff] gap-3 hover:gap-4">
+                        <span className="leading-[25px]">Explore Our Services</span><FaArrowRightLong size={24} className="mt-[2px]" />
                     </Link>
                 </div>
             <Swiper
