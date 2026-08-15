@@ -2,19 +2,101 @@ import Image from "next/image";
 import Link from "next/link";
 import { FaWater, FaShieldAlt, FaAward, FaUsers } from "react-icons/fa";
 import { prefix } from "@/utils/prefix";
+import { Metadata } from "next";
+import AboutLaluna from "@/components/AboutLaluna";
+
+const baseUrl = "https://lalunawatersportscenter.com";
+export const metadata:Metadata = {
+ title: "About Us | LaLuna Water Sports Center Bentota Sri Lanka",
+  description:
+    "Discover LaLuna Water Sports Center in Bentota, Sri Lanka. Offering certified jet skiing, river safaris, banana boat rides, and water adventure packages on the Bentota River and ocean.",
+  keywords: [
+    "LaLuna Water Sports Center",
+    "About LaLuna Bentota",
+    "Water sports team Bentota",
+    "Bentota river safari company",
+    "Certified water sports instructors Sri Lanka",
+    "Best water sports center Bentota",
+    "water Sports near Mirissa",
+    "Water Sports center Bentota, Sri Lanka"
+  ],
+  alternates: {
+    canonical: `${baseUrl}/about/`,
+  },
+  openGraph: {
+    title: "About Us | LaLuna Water Sports Center Bentota",
+    description:
+      "Sri Lanka's premier water sports destination. Certified safety, top-quality equipment, and unforgettable adventures on the Bentota River & Ocean.",
+    url: `${baseUrl}/about/`,
+    siteName: "LaLuna Water Sports Center",
+    type: "website",
+    images: [
+      {
+        url: `${baseUrl}/og-image.jpeg`,
+        secureUrl: `${baseUrl}/og-image.jpeg`,
+        width: 1200,
+        height: 630,
+        type: "image/jpeg",
+        alt: "LaLuna Water Sports Center Bentota",
+      },
+    ],
+  },
+};
+
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "LocalBusiness",
+      "@id": `${baseUrl}/#organization`,
+      name: "LaLuna Water Sports Center",
+      url: `${baseUrl}/`,
+      logo: `${baseUrl}/og-image.jpeg`,
+      image: `${baseUrl}/og-image.jpeg`,
+      description: "Premier water sports center in Bentota, Sri Lanka offering jet skiing, river safaris, banana boat rides, and aquatic adventure packages.",
+      address: {
+        "@type": "PostalAddress",
+        addressLocality: "Bentota",
+        addressCountry: "LK",
+      },
+    },
+    {
+      "@type": "BreadcrumbList",
+      itemListElement: [
+        {
+          "@type": "ListItem",
+          position: 1,
+          name: "Home",
+          item: `${baseUrl}/`,
+        },
+        {
+          "@type": "ListItem",
+          position: 2,
+          name: "About Us",
+          item: `${baseUrl}/about/`,
+        },
+      ],
+    },
+  ],
+};
 
 export default function AboutPage() {
   
   const stats = [
     { icon: <FaUsers size={24} />, value: "125+", label: "Happy Adventurers" },
     { icon: <FaShieldAlt size={24} />, value: "100%", label: "Safety Record" },
-    { icon: <FaAward size={24} />, value: "5+", label: "Years Experience" },
+    { icon: <FaAward size={24} />, value: "25+", label: "Years Experience" },
     { icon: <FaWater size={24} />, value: "15+", label: "Water Activities" },
   ];
 
+
+
   return (
     <main className="w-full min-h-screen bg-gray-50">
-      
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
       {/* --- HERO BANNER --- */}
       <section className="relative w-full h-[300px] md:h-[400px] flex items-center justify-center bg-black">
         <Image
@@ -25,7 +107,7 @@ export default function AboutPage() {
           priority
         />
         <div className="relative z-10 text-center px-4">
-          <h1 className="text-4xl md:text-5xl font-bold text-white drop-shadow-md !font-cursive">
+          <h1 className="text-4xl md:text-5xl font-bold text-white! drop-shadow-md !font-cursive">
             Our Story
           </h1>
           <p className="text-teal-200 mt-2 text-sm md:text-lg max-w-xl mx-auto font-medium">
@@ -35,46 +117,7 @@ export default function AboutPage() {
       </section>
 
       {/* --- OUR MISSION & VISION --- */}
-      <section className="max-w-7xl mx-auto px-4 py-16 md:py-24">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
-          
-          {/* Left Column: Text Content */}
-          <div className="space-y-3">
-            <h3 className="text-site-green font-bold font-cursive block text-[32px]">
-              Welcome to La Luna
-            </h3>
-            <h2 className="text-3xl md:text-4xl font-bold leading-tight">
-              Riding the Waves of Passion and Adventure Since Day One
-            </h2>
-            <p className="text-gray-600 leading-relaxed">
-              Founded by a team of local marine enthusiasts, La Luna Water Sports was born out of a shared love for the open ocean and adrenaline-fueled adventures. We don&apos;t just provide equipment rental; we engineer experiences that stay with you long after the saltwater dries.
-            </p>
-            <p className="text-gray-600 leading-relaxed">
-              Whether you are carving wakes on a premium Jet Ski, flying high above the coast on a Flyfish, or exploring deep marine ecosystems, safety, top-tier equipment, and sheer fun are our ultimate standards.
-            </p>
-            <div className="flex my-6">
-              <Link 
-                href="/services" 
-                className="btn primary-button"
-            >
-                Explore Activities
-              </Link>
-            </div>
-          </div>
-
-          {/* Right Column: Composite Image Showcase */}
-          <div className="relative h-[350px] md:h-[450px] w-full rounded-2xl overflow-hidden shadow-2xl bg-gray-200">
-            <Image
-              src={`${prefix}/images/packages/family-river.jpg`} // Make sure this matches your folder image name
-              alt="Thrilling ocean sports"
-              fill
-              className="object-cover"
-            />
-          </div>
-
-        </div>
-      </section>
-
+      <AboutLaluna />
       {/* --- STATS ACCELERATOR COUNTER BANNER --- */}
       <section className="bg-neutral-900 text-white py-16">
         <div className="max-w-7xl mx-auto px-4 grid grid-cols-2 md:grid-cols-4 gap-8 text-center">

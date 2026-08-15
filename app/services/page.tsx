@@ -1,12 +1,82 @@
 import Image from "next/image";
 import Link from "next/link";
-import { FaClock, FaDollarSign, FaBolt } from "react-icons/fa";
+import { FaClock, FaBolt } from "react-icons/fa";
 import { prefix } from "@/utils/prefix";
 import { SERVICES_DATA } from "@/data/services";
 import Button from "@/components/Button";
+import { Metadata } from "next";
+
+const baseUrl = "https://lalunawatersportscenter.com";
+export const metadata : Metadata = {
+ title: "Water Sports Services & Adventure Packages | La Luna Bentota",
+  description:
+    "Explore our full range of water sports in Bentota, Sri Lanka. Rent jet skis, book Bentota river safaris, banana boat rides, tube rides, wakeboarding, and custom adventure packages.",
+  keywords: [
+    "Bentota water sports Services",
+    "Jet ski rental Bentota",
+    "Bentota river safari booking",
+    "Banana boat ride Sri Lanka",
+    "Wakeboarding Bentota",
+    "Water activities Aluthgama",
+    "LaLuna activity rates",
+  ],
+  alternates: {
+    canonical: `${baseUrl}/services/`,
+  },
+  openGraph: {
+    title: "Water Sports Services & Packages | LaLuna Bentota",
+    description:
+      "From high-speed jet ski rides on the Indian Ocean to peaceful river safaris along the Bentara Ganga. Check out our activity packages and rates.",
+    url: `${baseUrl}/services/`,
+    siteName: "La Luna Water Sports Center",
+    type: "website",
+    images: [
+      {
+        url: `${baseUrl}/og-image.jpeg`,
+        secureUrl: `${baseUrl}/og-image.jpeg`,
+        width: 1200,
+        height: 630,
+        alt: "LaLuna Water Sports Center Services and Activities",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Water Sports Services & Adventure Packages | LaLuna Bentota",
+    description:
+      "Explore our full range of water sports in Bentota, Sri Lanka. Jet skis, river safaris, banana boat rides, tube rides, and wakeboarding.",
+    images: [`${baseUrl}/og-image.jpeg`],
+  },
+};
+
 // 2. The Services Dataset (matches your public folder directory structure)
 const SERVICES = SERVICES_DATA;
 export default function ServicesPage() {
+
+  // Generate ItemList / Service JSON-LD Schema dynamically from SERVICES_DATA
+  const servicesSchema = {
+    "@context": "https://schema.org",
+    "@type": "ItemList",
+    "name": "Water Sports Services in Bentota",
+    "description":
+      "Comprehensive list of aquatic adventures and water sports services offered by La Luna Water Sports Center in Bentota, Sri Lanka.",
+    "itemListElement": SERVICES.map((service, index) => ({
+      "@type": "ListItem",
+      "position": index + 1,
+      "item": {
+        "@type": "Service",
+        "name": service.title,
+        "description": service.description,
+        "url": `${baseUrl}/services/${service.slug}/`,
+        "provider": {
+          "@type": "SportsActivityLocation",
+          "name": "LaLuna Water Sports Center",
+          "url": baseUrl,
+        },
+        "image": `${baseUrl}${service.image}`,
+      },
+    })),
+  };
   
   // Helper to color-code intensity badges dynamically
   const getIntensityColor = (intensity: string) => {
@@ -19,7 +89,11 @@ export default function ServicesPage() {
 
   return (
     <main className="w-full min-h-screen bg-gray-50 pb-20">
-      
+      {/* Inject JSON-LD Structured Data */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(servicesSchema) }}
+      />
       {/* --- HERO SECTION --- */}
       <section className="relative w-full h-[300px] md:h-[400px] flex items-center justify-center bg-black">
         <Image
@@ -31,7 +105,7 @@ export default function ServicesPage() {
         />
         <div className="relative z-10 text-center px-4">
           <h3 className="text-white font-bold">Adrenaline on Demand</h3>
-          <h1 className="text-4xl md:text-5xl font-bold text-white drop-shadow-md !font-cursive">
+          <h1 className="text-4xl md:text-5xl font-bold text-white! drop-shadow-md !font-cursive">
             Our Aquatic Adventures
           </h1>
           <p className="text-teal-200 mt-2 text-sm md:text-lg max-w-xl mx-auto font-medium">
@@ -81,10 +155,6 @@ export default function ServicesPage() {
                     <FaClock className="text-teal-500 shrink-0" />
                     <span>{service.duration}</span>
                   </div>
-                  <div className="flex items-center gap-1.5 justify-center text-center border-l border-r border-gray-100">
-                    <FaDollarSign className="text-teal-500 shrink-0" />
-                    <span>From {service.price}</span>
-                  </div>
                   <div className="flex items-center gap-1.5 justify-center text-center text-site-green">
                     <FaBolt className="text-teal-500 shrink-0" />
                     <span>Instant Book</span>
@@ -92,7 +162,7 @@ export default function ServicesPage() {
                 </div>
 
                 {/* Action Button */}
-                <Button href={`/services/${service.slug}`} fullWidth>
+                <Button href={`/services/${service.slug}/`} fullWidth>
                   View Details
                 </Button>
                 
@@ -114,7 +184,7 @@ export default function ServicesPage() {
             </p>
           </div>
           <Link 
-            href="/Packages" 
+            href="/packages/" 
             className="bg-white hover:bg-gray-50 text-gray-900 border border-gray-200 font-bold px-6 py-3.5 rounded-xl transition-colors shadow-sm whitespace-nowrap"
           >
             View Packages

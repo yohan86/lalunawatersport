@@ -3,6 +3,8 @@ import { useState } from 'react';
 import Image from 'next/image';
 import { prefix } from '@/utils/prefix';
 import { SERVICES_DATA } from '@/data/services';
+import Link from 'next/link';
+
 
 
 const SERVICES = SERVICES_DATA;
@@ -32,14 +34,14 @@ export default function OurServices() {
     : filteredServices;
 
   return (
-    <section className="py-24 bg-slate-950 text-white px-6 md:px-12">
+    <section className="py-24 bg-[#4d5885] text-white px-6 md:px-12">
       <div className="max-w-7xl mx-auto">
         
         {/* Title Area */}
         <div className="text-center mb-16">
-            <h3 className="font-display text-[28px] text-site-green">Our Services</h3>
-          <h2 className="text-4xl md:text-5xl font-black uppercase tracking-wider mt-2 ">
-            Choose Your Water Adventure
+            <p className="font-display text-[28px] text-site-green">Our Water Sports Activities</p>
+          <h2 className="text-4xl md:text-5xl font-black uppercase tracking-wider mt-2 text-white! ">
+            Best water sports in Bentota
           </h2>
           <p className="text-slate-400 mt-4 max-w-xl mx-auto text-base">
             From high-speed river rushes to pristine ocean exploration—discover 18 ultimate ways to experience Bentota.
@@ -75,10 +77,12 @@ export default function OurServices() {
                 service.size === 'large' ? 'md:col-span-2' : 'md:col-span-1'
               }`}
             >
+              <Link href={`/services/${service.slug}`} aria-label={`View ${service.title}`} className="absolute inset-0 z-20" />
               <Image 
                 src={`${prefix}${service.image}`}
-                alt={service.image} 
+                alt={service.title} 
                 fill 
+                sizes="(max-width:768px) 100vw, (max-width:1200px) 50vw, 33vw"
                 className="object-cover transition-transform duration-700 group-hover:scale-110 brightness-[0.70] group-hover:brightness-[0.85]"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/20 to-transparent" />
@@ -87,9 +91,10 @@ export default function OurServices() {
                   <span className="text-[10px] font-extrabold text-cyan-400 uppercase tracking-widest bg-cyan-950/60 border border-cyan-800/50 px-2.5 py-1 rounded-md">
                     {service.cat}
                   </span>
-                  <h3 className="text-xl md:text-2xl font-black mt-3 text-white tracking-wide uppercase">
+                  <h3 className="text-xl md:text-2xl font-black mt-3 text-white! tracking-wide uppercase">
                     {service.title}
                   </h3>
+                  <p>{service.description}</p>
                 </div>
                 <div className="w-10 h-10 bg-slate-900/80 rounded-full border border-slate-800 flex items-center justify-center text-slate-300 group-hover:bg-cyan-500 group-hover:text-slate-950 transition-all duration-300">
                   &rarr;

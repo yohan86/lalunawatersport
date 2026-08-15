@@ -1,7 +1,8 @@
 import Link from 'next/link';
 import Image from 'next/image';
-import { FaWhatsapp, FaPhoneAlt, FaEnvelope, FaMapMarkerAlt, FaFacebookF, FaInstagram, FaYoutube } from 'react-icons/fa';
+import { FaWhatsapp, FaPhoneAlt, FaEnvelope, FaMapMarkerAlt, FaFacebookF, FaYoutube } from 'react-icons/fa';
 import { prefix } from '@/utils/prefix';
+import SocialMedia from './SocialMedia';
 export default function Footer() {
   return (
     <footer className="bg-slate-950 text-slate-400 border-t border-slate-900 pt-20 pb-8 px-6 md:px-12">
@@ -25,21 +26,7 @@ export default function Footer() {
             </p>
             {/* Social Media Links */}
             <div className="flex gap-3 mt-2">
-              {[
-                { icon: <FaFacebookF size={14} />, href: 'https://facebook.com' },
-                { icon: <FaInstagram size={14} />, href: 'https://instagram.com' },
-                { icon: <FaYoutube size={14} />, href: 'https://youtube.com' }
-              ].map((social, idx) => (
-                <a
-                  key={idx}
-                  href={social.href}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="w-9 h-9 rounded-xl bg-slate-900 border border-slate-800 flex items-center justify-center text-slate-400 hover:text-cyan-400 hover:border-cyan-500/40 transition-all duration-300"
-                >
-                  {social.icon}
-                </a>
-              ))}
+              <SocialMedia />
             </div>
           </div>
 
@@ -54,7 +41,8 @@ export default function Footer() {
                 { name: 'Fly Fish Thrill Ride', href: '#services' },
                 { name: 'Deep Sea Diving', href: '#services' },
                 { name: 'Mangrove River Boat Trip', href: '#services' },
-                { name: 'Adventure Combo Packs', href: '#packages' }
+                { name: 'Adventure Combo Packs', href: '#packages' },
+                { name: 'FAQ', href: '/faq' },
               ].map((link, idx) => (
                 <li key={idx}>
                   <Link href={link.href} className="hover:text-cyan-400 transition-colors duration-200">
@@ -106,7 +94,7 @@ export default function Footer() {
               <li className="flex items-center gap-3">
                 <FaEnvelope className="text-cyan-500 shrink-0" size={14} />
                 <a href="mailto:info@lalunabentota.com" className="hover:text-white transition-colors">
-                  info@lalunabentota.com
+                  info@lalunawatersportscenter.com
                 </a>
               </li>
             </ul>
@@ -117,11 +105,11 @@ export default function Footer() {
         {/* Bottom Copyright Bar */}
         <div className="border-t border-slate-900/60 pt-8 flex flex-col sm:flex-row justify-between items-center gap-4 text-xs font-semibold tracking-wide uppercase text-slate-600">
           <p>
-            &copy; {new Date().getFullYear()} La Luna Water Sports Bentota. All Rights Reserved.
+            &copy; {new Date().getFullYear()} LaLuna Water Sports Bentota. All Rights Reserved. Developed By DIYOSH IT
           </p>
           <div className="flex gap-6">
-            <Link href="/privacy" className="hover:text-slate-400 transition-colors">Privacy Policy</Link>
-            <Link href="/terms" className="hover:text-slate-400 transition-colors">Terms of Service</Link>
+            <Link href="/privacy-policy" className="hover:text-slate-400 transition-colors">Privacy Policy</Link>
+            <Link href="/terms-and-conditions" className="hover:text-slate-400 transition-colors">Terms of Service</Link>
           </div>
         </div>
 

@@ -11,49 +11,34 @@ import 'swiper/css/pagination';
 const REVIEWS = [
   {
     id: 1,
-    name: 'Sarah Jenkins',
-    country: 'United Kingdom',
+    name: 'armaan kapoor',
+    country: 'India',
     rating: 5,
     date: 'May 2026',
-    activity: 'Jet Ski & Fly Fish',
-    comment: 'Absolutely incredible experience! The Fly Fish ride was insane—we caught so much air. Instructors were professional, fun, and made us feel totally safe the whole time. Highlight of our Bentota trip!'
+    activity: 'Great experience with Laluna Water Sports',
+    comment: `We had a great experience with Laluna Water Sports in Bentota. We did the water safari and jet skiing with them, and overall it was a really good time.
+
+Their pricing is very fair. I wouldn’t say it’s cheap, but for the kind of service and experience they provide, it feels completely justified.`
   },
   {
     id: 2,
-    name: 'Michael Chen',
-    country: 'Australia',
+    name: 'Hasandi Fernando',
+    country: 'Sri Lanka',
     rating: 5,
-    date: 'April 2026',
-    activity: 'Extreme Adrenaline Pack',
-    comment: 'We booked the 3-activity combo pack. It is worth every single dollar. The Jet Skis are fast and well-maintained. Booking through WhatsApp was incredibly fast and easy.'
+    date: 'Octomber 2025',
+    activity: 'It was such a nice experience',
+    comment: `We were a bit late but they still provided us with a very good service. We did the individual jet ski for 15 minutes and they made sure everything was save and fun. They also offered us a customisable package with the banana boat, flying fish and lying down and it was perfect! Definitely recommend!!`
   },
   {
     id: 3,
-    name: 'Elena Rostova',
-    country: 'Germany',
+    name: 'Shalini Vijayagopalan',
+    country: 'Sri Lanka',
     rating: 5,
-    date: 'Rhine Tour Traveler',
-    activity: 'Mangrove River Safari',
-    comment: 'Beautiful, peaceful boat trip down the river. Our guide pointed out crocodiles, monitor lizards, and beautiful birds. Perfect for families. Highly recommend La Luna!'
+    date: '9 months ago',
+    activity: 'really nice experience',
+    comment: `We had a really nice experience here. Nearly 8 adults and 6 kids. Did kayaking , jet ski, banana ride and the sofa ride.Quite well managed and a good concern for safety.The cost is reasonable considering that they make their livelihood from tourism. The massage place attached is also quite good.`
   },
-  {
-    id: 4,
-    name: 'David & Family',
-    country: 'UAE',
-    rating: 5,
-    date: 'March 2026',
-    activity: 'River Breeze Family Combo',
-    comment: 'Took my kids on the Banana Boat and Kayaks. The life jackets fit perfectly, and the staff were watching closely. Safe, organized, and beautifully positioned on the river.'
-  },
-  {
-    id: 5,
-    name: 'Tomás Silva',
-    country: 'Portugal',
-    rating: 5,
-    date: 'February 2026',
-    activity: 'Deep Sea Diving',
-    comment: 'Great dive site setups and pristine gear. The divemaster knew the local reef structures perfectly. Saw turtles and amazing schools of fish. 10/10.'
-  }
+ 
 ];
 
 export default function TestimonialsSection() {
@@ -66,10 +51,10 @@ const swiperRef = useRef<SwiperRef>(null);
         {/* Section Header with Navigation Sync */}
         <div className="flex flex-col md:flex-row md:justify-between md:items-end mb-16 gap-6">
           <div className="text-left">
-            <h3 className="text-site-green font-display tracking-widest text-[28px]">Guest Reviews</h3>
-            <h2 className="text-[#c9cfd7]! text-4xl md:text-5xl font-black uppercase tracking-wider mt-2">
+            <h2 className="text-site-green! font-display tracking-widest text-[28px]">Guest Reviews</h2>
+            <h3 className="text-[#c9cfd7]! text-4xl md:text-5xl font-black uppercase tracking-wider mt-2">
               What Adventurers Say
-            </h2>
+            </h3>
             <p className="text-white/80 mt-3 max-w-xl text-base">
               Don’t just take our word for it. Here is the feedback from travelers who experienced the rush with La Luna.
             </p>
@@ -79,12 +64,14 @@ const swiperRef = useRef<SwiperRef>(null);
           <div className="flex gap-3 h-fit select-none">
             <button 
               onClick={() => swiperRef.current?.swiper.slidePrev()}
+              aria-label="Previous Review"
               className="w-12 h-12 rounded-xl bg-slate-900 border border-slate-800 flex items-center justify-center text-slate-400 hover:text-cyan-400 hover:border-cyan-500/40 transition-all duration-300 cursor-pointer"
             >
               <FaArrowLeft size={14} />
             </button>
             <button 
               onClick={() => swiperRef.current?.swiper.slideNext()}
+              aria-label="Next Review"
               className="w-12 h-12 rounded-xl bg-slate-900 border border-slate-800 flex items-center justify-center text-slate-400 hover:text-cyan-400 hover:border-cyan-500/40 transition-all duration-300 cursor-pointer"
             >
               <FaArrowRight size={14} />

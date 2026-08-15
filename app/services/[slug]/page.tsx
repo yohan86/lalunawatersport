@@ -1,10 +1,12 @@
 import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { FaClock, FaDollarSign, FaBolt, FaArrowLeft } from "react-icons/fa";
+import { FaClock, FaBolt, FaArrowLeft } from "react-icons/fa";
 import { prefix } from "@/utils/prefix";
 import { SERVICES_DATA } from "@/data/services";
+import { Metadata } from "next";
 
+const baseUrl = "https://lalunawatersportscenter.com";
 interface PageProps {
   params: Promise<{ slug: string }>;
 }
@@ -15,6 +17,56 @@ export async function generateStaticParams() {
     slug: service.slug,
   }));
 }
+
+export async function generateMetadata({params}:{params:Promise<{slug:string}>}):Promise<Metadata>{
+  const resolvedParams = await params;
+  const post = SERVICES_DATA.find(p=> p.slug === resolvedParams.slug );
+
+  if(!post){
+    return {
+      title: "Water Sports Service | Bentota, Sri Lanka",
+      description: "LaLuna Water Sports Center, Bentota - Explore our range of water sports activities including jet skiing, banana boat rides, river safaris, and more. Book your adventure today!",
+    }
+  }
+
+  const title = `${post.metaTitle} | LaLuna Water Sports Center, Bentota`;
+  const postUrl = `${baseUrl}/services/${resolvedParams.slug}/`;
+
+
+  // Resolve dynamic post image to absolute URL
+  const rawImagePath = post.image || "/og-image.jpeg";
+  const fullImageUrl = rawImagePath.startsWith("http")
+    ? rawImagePath
+    : `${baseUrl}${rawImagePath.startsWith("/") ? "" : "/"}${rawImagePath}`;
+
+  return {
+    title,
+    description: post.metaDescription || "LaLuna Water Sports Center, Bentota - Explore our range of water sports activities including jet skiing, banana boat rides, river safaris, and more. Book your adventure today!",
+    alternates: {
+      canonical: postUrl,
+    },
+    openGraph: {
+      title: title,
+      description: post.description,
+      url: postUrl,
+      type: "website",
+      images: [
+        {
+          url: fullImageUrl,
+          secureUrl: fullImageUrl, // Crucial for HTTPS WhatsApp previews
+          width: 1200,
+          height: 630,
+          type: "image/jpeg",
+          alt: post.title,
+        },
+      ],
+    },
+  };
+
+
+}
+
+
 
 export default async function ServiceDetailPage({ params }: PageProps) {
   const { slug } = await params;
@@ -27,8 +79,27 @@ export default async function ServiceDetailPage({ params }: PageProps) {
     notFound();
   }
 
+  const rawImagePath = service.image || "/og-image.jpeg";
+  const fullImageUrl = rawImagePath.startsWith("http")
+    ? rawImagePath
+    : `${baseUrl}${rawImagePath.startsWith("/") ? "" : "/"}${rawImagePath}`;
+
+  // Structured Data without price/offers object
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "TouristAttraction",
+    name: service.title,
+    description: service.fullDescription || service.description,
+    image: fullImageUrl,
+  };
+
   return (
     <main className="w-full min-h-screen bg-gray-50 pb-20">
+      {/* Inject Structured Data Schema for Google */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
       {/* Back Navigation Bar */}
       <div className="max-w-7xl mx-auto px-4 pt-6">
         <Link 
@@ -77,7 +148,7 @@ export default async function ServiceDetailPage({ params }: PageProps) {
             </div>
 
             {/* Price Matrix Strip */}
-            <div className="border-t border-b border-gray-100 py-4 flex items-center justify-between text-gray-700">
+            <div className="border-t border-b border-gray-100 py-4 flex items-center justify-around text-gray-700">
               <div className="flex items-center gap-2">
                 <FaClock className="text-teal-500 text-lg" />
                 <div>
@@ -85,13 +156,13 @@ export default async function ServiceDetailPage({ params }: PageProps) {
                   <div className="font-semibold text-sm md:text-base">{service.duration}</div>
                 </div>
               </div>
-              <div className="flex items-center gap-2 border-l pl-6 border-gray-100">
+              {/*<div className="flex items-center gap-2 border-l pl-6 border-gray-100">
                 <FaDollarSign className="text-teal-500 text-lg" />
                 <div>
                   <div className="text-xs text-gray-400 font-normal">Base Rate</div>
                   <div className="font-semibold text-sm md:text-base">{service.price}</div>
-                </div>
-              </div>
+                </div> 
+              </div>*/}
               <div className="flex items-center gap-2 border-l pl-6 border-gray-100">
                 <FaBolt className="text-teal-500 text-lg" />
                 <div>
@@ -104,8 +175,8 @@ export default async function ServiceDetailPage({ params }: PageProps) {
             {/* Direct Booking Route Button */}
             <div>
               <Link 
-                href="/contact" 
-                className="w-full block text-center bg-black hover:bg-neutral-800 text-white font-bold py-4 px-6 rounded-xl transition-colors duration-200 shadow-md"
+                href={`/contact?title=Booking+inquiry:+${encodeURIComponent(service.title)}`}
+                className="btn primary-button w-full block text-center justify-center items-center shadow-md"
               >
                 Confirm & Book This Activity
               </Link>

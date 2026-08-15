@@ -32,9 +32,10 @@ body {
 }
 h1{
   font-family: var(--font-display);
+  color:#2b538e;
 }
 h2{
-  color:#616e81;
+  color:#2b538e;
 }
 
 .btn{
@@ -54,4 +55,11 @@ h2{
 }
 .about-images .image{
   @apply border-4 border-sky-50 shadow-[inset_2px_4px_6px_rgba(255,255,255,0.6),_0_10px_20px_rgba(0,0,0,0.3)] drop-shadow-lg transition-transform duration-300 hover:scale-105 hover:z-20;
+}
+.form .field-wrapper{
+  @apply  flex w-full flex-col gap-2 items-start mb-5;
+}
+.field-wrapper textarea,
+.field-wrapper input{
+  @apply  border-b border-gray-300 w-full;
 }

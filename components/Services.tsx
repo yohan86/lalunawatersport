@@ -6,7 +6,7 @@ import { prefix } from '@/utils/prefix';
 
 const SERVICES = [
   // 1. THRILLS (High Speed)
-  { id: 1, name: 'Jet Ski', cat: 'thrill', img: `${prefix}/images/sports/jetski.jpg`, size: 'large' },
+  { id: 1, name: 'Jet Skddi', cat: 'thrill', img: `${prefix}/images/sports/jetski.jpg`, size: 'large' },
   { id: 2, name: 'Water Ski', cat: 'thrill', img: `${prefix}/images/sports/waterski.jpg`, size: 'small' },
   { id: 3, name: 'Fly Fish', cat: 'thrill', img: `${prefix}/images/sports/flyfish.jpg`, size: 'small' },
   { id: 4, name: 'Speed Boat Ride', cat: 'thrill', img: `${prefix}/images/sports/speedboat.jpg`, size: 'small' },
@@ -20,7 +20,7 @@ const SERVICES = [
 
   // 3. PADDLES & TOURS (River & Ocean Safaris)
   { id: 10, name: 'Yacht Cruise Tours', cat: 'safari', img: `${prefix}/images/sports/yacht.jpg`, size: 'large' },
-  { id: 11, name: 'Boat Trip', cat: 'safari', img: `${prefix}/images/sports/boattrip.jpg`, size: 'small' },
+  { id: 11, name: 'Bentota River Boat Safari', cat: 'safari', img: `${prefix}/images/sports/boattrip.jpg`, size: 'small' },
   { id: 12, name: 'Kayak', cat: 'safari', img: `${prefix}/images/sports/kayak.jpg`, size: 'small' },
   { id: 13, name: 'Canoeing', cat: 'safari', img: `${prefix}/images/sports/canoeing.jpg`, size: 'small' },
   { id: 14, name: 'Stand-up Paddling', cat: 'safari', img: `${prefix}/images/sports/sup.jpg`, size: 'small' },
@@ -62,9 +62,9 @@ export default function ServicesSection() {
         
         {/* Title Area */}
         <div className="text-center mb-16">
-            <h3 className="font-display text-[28px] text-site-green">Our Services</h3>
+            <h3 className="font-display text-[28px] text-site-green">Our Services s</h3>
           <h2 className="text-4xl md:text-5xl font-black uppercase tracking-wider mt-2">
-            Choose Your Water Adventure
+            Best water sports in Bentota
           </h2>
           <p className="text-slate-400 mt-4 max-w-xl mx-auto text-base">
             From high-speed river rushes to pristine ocean exploration—discover 18 ultimate ways to experience Bentota.

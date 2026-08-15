@@ -1,6 +1,7 @@
 import Image from 'next/image';
 import { FaCalendarCheck, FaWhatsapp } from 'react-icons/fa';
 import { prefix } from '@/utils/prefix';
+import Link from 'next/link';
 
 
 export default function StaticCTA() {
@@ -14,10 +15,10 @@ export default function StaticCTA() {
         <div className="absolute inset-0 z-0 select-none pointer-events-none">
           <Image 
             src={`${prefix}/images/cta-bg.jpg`} // Set your favorite Fly Fish or Jet Ski action shot here
-            alt="La Luna Adventure Playground"
+            alt="Water sports adventure in Bentota, Sri Lanka"
             fill
             className="object-cover brightness-[0.35]" // Keeps image dark so white text stands out beautifully
-            priority // Tells Next.js to load this instantly
+            sizes="100vw" // Tells Next.js to load this instantly
           />
         </div>
 
@@ -48,21 +49,22 @@ export default function StaticCTA() {
           <div className="flex flex-col sm:flex-row gap-4 mt-12 w-full sm:w-auto">
             
             {/* Primary Action Button - Booking Link */}
-            <button className="inline-flex items-center justify-center gap-3 px-8 py-4.5 bg-cyan-500 hover:bg-cyan-400 text-slate-950 font-black uppercase text-xs tracking-widest rounded-xl transition-all duration-300 shadow-[0_4px_25px_rgba(6,182,212,0.4)] hover:shadow-[0_4px_35px_rgba(6,182,212,0.6)] cursor-pointer group">
+            <Link href="/contact" aria-label="Book Your Adventure" className="inline-flex items-center justify-center gap-3 px-8 py-4.5 bg-cyan-500 hover:bg-cyan-400 text-slate-950 font-black uppercase text-xs tracking-widest rounded-xl transition-all duration-300 shadow-[0_4px_25px_rgba(6,182,212,0.4)] hover:shadow-[0_4px_35px_rgba(6,182,212,0.6)] cursor-pointer group">
               <FaCalendarCheck size={14} className="transition-transform group-hover:scale-110" />
-              Contact Us to Book
-            </button>
+              Book Your Adventure
+            </Link>
 
             {/* Secondary Action Button - Direct WhatsApp Hook */}
-            <a 
-              href="https://wa.me/+94719149393?text=Hello%20La%20Luna!%20I%27m%20interested%20in%20booking%20a%20water%20sports%20activity.%20Could%20you%20please%20provide%20more%20details?" 
+            <Link 
+              href="https://wa.me/+94765504541?text=Hello%20La%20Luna!%20I%27m%20interested%20in%20booking%20a%20water%20sports%20activity.%20Could%20you%20please%20provide%20more%20details?" 
               target="_blank"
               rel="noopener noreferrer"
+              aria-label="Send a WhatsApp Message to Book"
               className="inline-flex items-center justify-center gap-3 px-8 py-4.5 bg-slate-950/80 hover:bg-slate-950 text-emerald-400 hover:text-emerald-300 border border-emerald-500/30 hover:border-emerald-500/60 font-black uppercase text-xs tracking-widest rounded-xl transition-all duration-300 backdrop-blur-md cursor-pointer"
             >
               <FaWhatsapp size={16} className="text-emerald-400" />
               Chat on WhatsApp
-            </a>
+            </Link>
 
           </div>
 

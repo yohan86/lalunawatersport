@@ -1,6 +1,8 @@
+"use client"
 import Image from "next/image"
 import { FaArrowRightLong } from "react-icons/fa6";
 import {prefix} from "../utils/prefix";
+import Link from "next/link";
 
 
 const AboutIntro = () => {
@@ -24,15 +26,15 @@ const AboutIntro = () => {
         </div>
       </div>
       <div className="about-intro flex flex-col w-full md:w-[40%] mb-15 md:mb-0">
-        <h1 className="text-4xl font-bold mb-6 text-site-green [text-shadow:1px_2px_2px_#404242cc]">Ride the Thrill at Bentota River</h1>
-        <h2 className="text-xl font-semibold mb-8">Unleash your inner adventurer with Sri Lanka’s premier water sports experience. Jet ski, flyboard, and dive into pure excitement</h2>
+        <h2 className="text-4xl font-bold mb-6 text-site-green! font-display! [text-shadow:1px_2px_2px_#404242cc]">Ride the Thrill at Bentota River</h2>
+        <h3 className="text-xl font-semibold mb-8 text-blue-900!">Unleash your inner adventurer with Sri Lanka’s premier water sports experience. Jet ski, flyboard, and dive into pure excitement</h3>
         <p className="text-gray-700 mb-6">
           At La Luna, we are passionate about creating unforgettable experiences for our clients. With years of expertise in the industry, we specialize in crafting unique and personalized events that leave a lasting impression. Our team of dedicated professionals is committed to delivering exceptional service and attention to detail, ensuring that every aspect of your event is flawlessly executed. Whether you&#39;re planning a wedding, corporate event, or special celebration, La Luna is here to bring your vision to life and make your dreams a reality.
         </p>
-        <button className="btn primary-button gap-2 hover:gap-4">
+        <Link href="/about" className="btn primary-button gap-2 hover:gap-4">
           
           <span className="">Learn More</span><FaArrowRightLong size={15} className="mt-[5px]" />
-        </button>
+        </Link>
       </div>
     </section>
   )
