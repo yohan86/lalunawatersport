@@ -86,6 +86,7 @@ const swiperRef = useRef<SwiperRef>(null);
                       fill
                       sizes="(max-width:768px) 100vw, (max-width:1200px) 50vw, 33vw"
                       draggable={false}
+                      loading="lazy"
                       className="object-cover transition-transform duration-700 group-hover:scale-105 brightness-90 pointer-events-none"
                     />
                     <span className={`absolute top-4 right-4 text-[10px] font-extrabold uppercase tracking-wider px-3 py-1 rounded-full border backdrop-blur-md ${pkg.badgeColor}`}>

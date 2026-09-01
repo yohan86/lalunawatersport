@@ -66,6 +66,9 @@ const PackageDetails = async ({params}:{params: Promise<{slug:string}>}) => {
         notFound();
     }
 
+    const title = `${post.title} | LaLuna Water Sports Center`;
+    const postUrl = `${baseUrl}/packages/${slug}/`;
+
     const relativeImagePath = `${prefix}${post.image || "/og-image.jpeg"}`;
     const absoluteImageUrl = relativeImagePath.startsWith("http")
     ? relativeImagePath
@@ -103,6 +106,9 @@ const PackageDetails = async ({params}:{params: Promise<{slug:string}>}) => {
     }),
   };
 
+    // Format the text message sent to WhatsApp
+  const shareText = `Check out this package: *${post.title}*\n\n${postUrl}`;
+  const whatsappUrl = `https://api.whatsapp.com/send?text=${encodeURIComponent(shareText)}`;
 
   return (
     <main className="w-full min-h-screen bg-gray-50 pb-20">
@@ -191,6 +197,24 @@ const PackageDetails = async ({params}:{params: Promise<{slug:string}>}) => {
               >
                 Confirm & Book This Activity
               </Link>
+            </div>
+
+            <div className="max-w-3xl mx-auto mt-16 pt-8 border-t border-gray-200">
+              <div className="flex flex-col items-center gap-4">
+                <p className="text-sm text-gray-500">
+                  Do you like this package? Share it with your travel partners:
+                </p>
+                <div className="flex space-x-3">
+                  <a
+                    href={whatsappUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="px-4 py-2 bg-green-600 text-white rounded-lg text-sm font-semibold hover:bg-green-700 transition-colors"
+                  >
+                    Share on WhatsApp
+                  </a>
+                </div>
+              </div>
             </div>
 
           </div>

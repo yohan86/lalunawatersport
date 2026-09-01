@@ -57,7 +57,12 @@ export default function PackagesPage() {
     "@type": "ItemList",
     "name": "Bentota Water Sports Combo Packages",
     "description": "Top-rated water sports combo packages and activity deals offered by LaLuna Water Sports Center in Bentota, Sri Lanka.",
-    "itemListElement": PACKAGES_DATA.map((pkg, index) => ({
+    "itemListElement": PACKAGES_DATA.map((pkg, index) => {
+      const rawImage = pkg.image || "/og-image.jpeg";
+      const fullImageUrl = rawImage.startsWith("http")
+        ? rawImage
+        : `${baseUrl}${rawImage.startsWith("/") ? "" : "/"}${rawImage}`;
+        return {
       "@type": "ListItem",
       "position": index + 1,
       "item": {
@@ -65,9 +70,7 @@ export default function PackagesPage() {
         "name": pkg.title,
         "description": pkg.description,
         "url": `${baseUrl}/packages/${pkg.slug}/`,
-        "image": pkg.image.startsWith("http")
-        ? pkg.image
-        : `${baseUrl}${pkg.image.startsWith("/") ? "" : "/"}${pkg.image}`,
+        "image": fullImageUrl,
         "brand": {
           "@type": "Brand",
           "name": "La Luna Water Sports Center"
@@ -80,7 +83,10 @@ export default function PackagesPage() {
           "url": `${baseUrl}/packages/${pkg.slug}/`
         }
       }
-    }))
+
+        }
+
+    })
   };
 
   return (

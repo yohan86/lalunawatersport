@@ -49,7 +49,7 @@ export default function OurServices() {
         </div>
 
         {/* Categories Tab Navigation */}
-        <div className="flex flex-wrap justify-center gap-3 md:gap-4 mb-16">
+        <div className="flex flex-wrap justify-center gap-2 md:gap-4 mb-16">
           {CATEGORIES.map((cat) => (
             <button
               key={cat.id}
@@ -57,7 +57,7 @@ export default function OurServices() {
                 setActiveTab(cat.id);
                 setIsExpanded(false); // Reset expansion when changing tabs
               }}
-              className={`px-6 py-3 rounded-full font-bold uppercase text-xs tracking-wider transition-all duration-300 ${
+              className={`px-3 py-3 rounded-full font-bold uppercase text-xs tracking-wider transition-all duration-300 ${
                 activeTab === cat.id 
                   ? 'bg-cyan-500 text-slate-950 shadow-[0_0_20px_rgba(6,182,212,0.4)]' 
                   : 'bg-slate-900 text-slate-400 hover:text-white border border-slate-800'
@@ -83,6 +83,7 @@ export default function OurServices() {
                 alt={service.title} 
                 fill 
                 sizes="(max-width:768px) 100vw, (max-width:1200px) 50vw, 33vw"
+                loading="lazy"
                 className="object-cover transition-transform duration-700 group-hover:scale-110 brightness-[0.70] group-hover:brightness-[0.85]"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/20 to-transparent" />

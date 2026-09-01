@@ -45,7 +45,7 @@ export default function ContactPage() {
     "https://www.google.com/maps/dir/?api=1&destination=Laluna+Water+Sports+Bentota";
 
   const stats = [
-    { icon: <FaUsers size={24} />, value: "125+", label: "Happy Adventurers" },
+    { icon: <FaUsers size={24} />, value: "725K+", label: "Happy Adventurers" },
     { icon: <FaShieldAlt size={24} />, value: "100%", label: "Safety Record" },
     { icon: <FaAward size={24} />, value: "25+", label: "Years Experience" },
     { icon: <FaWater size={24} />, value: "15+", label: "Water Activities" },

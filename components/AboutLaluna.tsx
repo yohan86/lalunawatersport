@@ -78,6 +78,7 @@ const AboutLaluna = () => {
               <Link 
                 href="/services" 
                 className="btn primary-button"
+                aria-label="Explore Activities"
               >
                 Explore Activities
               </Link>

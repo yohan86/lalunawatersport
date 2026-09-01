@@ -62,6 +62,56 @@ export default function Home() {
     "@context": "https://schema.org",
     "@graph": [
       {
+        "@type": "WebSite",
+        "@id": `${baseUrl}/#website`,
+        "url": baseUrl,
+        "name": "LaLuna Water Sports Center",
+        "description": "Premier Water Sports Center in Bentota, Sri Lanka",
+        "publisher": {
+          "@id": `${baseUrl}/#organization`,
+        },
+      },
+      {
+        "@type": "SportsActivityLocation",
+        "@id": `${baseUrl}/#organization`,
+        "name": "LaLuna Water Sports Center",
+        "url": baseUrl,
+        "image": `${baseUrl}/og-image.jpeg`,
+        "telephone": "+94765504541",
+        "priceRange": "$$",
+        "description": "Premier water sports center in Bentota, Sri Lanka offering Jet Skiing, Banana Boat rides, River Safaris, Speedboats, and custom adventure packages.",
+        "sameAs": [
+          "https://www.facebook.com/profile.php?id=61591600229584"
+        ],
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "No. 06, Kaluwamodara, Aluthgama",
+          "addressLocality": "Bentota",
+          "addressRegion": "Southern Province",
+          "postalCode": "80500",
+          "addressCountry": "LK"
+        },
+        "geo": {
+          "@type": "GeoCoordinates",
+          "latitude": 6.4366495,
+          "longitude": 79.995577
+        },
+        "openingHoursSpecification": {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": [
+            "Monday",
+            "Tuesday",
+            "Wednesday",
+            "Thursday",
+            "Friday",
+            "Saturday",
+            "Sunday"
+          ],
+          "opens": "08:00",
+          "closes": "18:00"
+        }
+      },
+      {
         "@type": "WebPage",
         "@id": `${baseUrl}/#webpage`,
         "url": baseUrl,
@@ -69,9 +119,7 @@ export default function Home() {
         "description":
           "Experience top-rated water sports in Bentota, Sri Lanka. Certified jet ski rentals, calm river safaris, banana boat rides, wakeboarding, and custom family adventure packages on the Bentota River & Ocean.",
         "isPartOf": {
-          "@type": "WebSite",
-          "name": "LaLuna Water Sports Center",
-          "url": baseUrl,
+          "@id": `${baseUrl}/#website`,
         },
         "about": {
           "@id": `${baseUrl}/#organization`,
@@ -79,6 +127,7 @@ export default function Home() {
       },
       {
         "@type": "FAQPage",
+        "@id": `${baseUrl}/#faq`,
         "mainEntity": [
           {
             "@type": "Question",
@@ -86,7 +135,7 @@ export default function Home() {
             "acceptedAnswer": {
               "@type": "Answer",
               "text":
-                "At LaLuna Water Sports Center, we offer Jet Skiing, Banana Boat rides, Tube/Sofa rides, Water Skiing, Wakeboarding, Speedboat rides, Yacht Cruise Tours, Bentota River Safaris, and more than 15 water sports activities listed on our services page",
+                "At LaLuna Water Sports Center, we offer Jet Skiing, Banana Boat rides, Tube/Sofa rides, Water Skiing, Wakeboarding, Speedboat rides, Yacht Cruise Tours, Bentota River Safaris, and more than 15 water sports activities listed on our services page.",
             },
           },
           {

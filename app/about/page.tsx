@@ -83,7 +83,7 @@ const jsonLd = {
 export default function AboutPage() {
   
   const stats = [
-    { icon: <FaUsers size={24} />, value: "125+", label: "Happy Adventurers" },
+    { icon: <FaUsers size={24} />, value: "725K+", label: "Happy Adventurers" },
     { icon: <FaShieldAlt size={24} />, value: "100%", label: "Safety Record" },
     { icon: <FaAward size={24} />, value: "25+", label: "Years Experience" },
     { icon: <FaWater size={24} />, value: "15+", label: "Water Activities" },
@@ -100,8 +100,8 @@ export default function AboutPage() {
       {/* --- HERO BANNER --- */}
       <section className="relative w-full h-[300px] md:h-[400px] flex items-center justify-center bg-black">
         <Image
-          src={`${prefix}/images/sports/sport-3.jpg`} // Ensure this image path exists in your public folder
-          alt="La Luna Ocean Adventures"
+          src={`${prefix}/images/slider/donut_ride_bentota_1900.jpg`} // Ensure this image path exists in your public folder
+          alt="LaLuna Ocean Adventures"
           fill
           className="object-cover opacity-60 object-center"
           priority

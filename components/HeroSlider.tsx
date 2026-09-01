@@ -6,14 +6,43 @@ import { Navigation, Pagination, Autoplay } from "swiper/modules"
 import Link from "next/link"
 import { FaArrowRightLong } from "react-icons/fa6";
 import { prefix } from '@/utils/prefix';
+import { useGSAP } from "@gsap/react"
+import { useRef } from "react"
+import gsap from "gsap"
 
 
 
 const HeroSlider = () => {
+    const containerRef = useRef<HTMLDivElement>(null)
+
+  // Reusable animation function for caption items
+  const animateCaption = () => {
+    gsap.fromTo(
+      ".caption > *",
+      {
+        y: 100,
+        opacity: 0,
+      },
+      {
+        y: 0,
+        opacity: 1,
+        duration: 1,
+        stagger: 0.1,
+        ease: "power1.inOut",
+      },
+      
+    )
+  }
+
+  // Run entrance animation on component mount
+  useGSAP(() => {
+    animateCaption()
+  }, { scope: containerRef });
+
   return (
    <section className="flex w-full max-w-[1600px] m-auto h-[calc(100vh-90px)] md:h-[560px]">
-            <div className="hero-slider relative w-full h-[460px] md:h-[560px]">
-                <div className="absolute flex flex-col w-[90%] items-center text-center justify-center top-20 left-[5%] text-white  z-10 [text-shadow:6px_4px_12px_#0a2668cc]">
+            <div ref={containerRef} className="hero-slider relative w-full h-[460px] md:h-[560px]">
+                <div className="caption absolute flex flex-col w-[90%] items-center text-center justify-center top-20 left-[5%] text-white  z-10 [text-shadow:6px_4px_12px_#0a2668cc]">
                     <h1 className="font-cursive text-[28px] md:text-[40px] font-medium text-white!">Experience the Best Water Sports in Bentota</h1>
                     <h2 className="font-display text-[35px] leading-10 md:text-[40px] text-white!">Jet Ski • Banana Boat • River Safari • Wakeboarding</h2>
                     <p className="font-cursive text-[28px] md:text-[40px] font-medium "></p>
@@ -36,7 +65,7 @@ const HeroSlider = () => {
                 <SwiperSlide>
                     <div className="hero-slider__item relative w-full h-[calc(100vh-90px)] md:h-[560px]">
                         <Image 
-                        src={`${prefix}/images/slider/slider-1.jpg`} 
+                        src={`${prefix}/images/slider/lay-down-bentota-1900.jpg`} 
                         sizes="100vw" 
                         alt="Jet ski adventure in Bentota at LaLuna Water Sports Center" 
                         priority fill 
@@ -46,9 +75,9 @@ const HeroSlider = () => {
                 <SwiperSlide>
                     <div className="hero-slider__item relative w-full h-[calc(100vh-90px)] md:h-[560px]">
                         <Image 
-                        src={`${prefix}/images/slider/slider-2.jpg`} 
+                        src={`${prefix}/images/slider/jetski_bentota_1900.jpg`} 
                         sizes="100vw" 
-                        alt="Banana boat ride in Bentota, Sri Lanka" 
+                        alt="Jet Ski ride in Bentota, Sri Lanka" 
                         fill 
                         className="object-cover" />
                     </div>
@@ -56,9 +85,19 @@ const HeroSlider = () => {
                 <SwiperSlide>
                     <div className="hero-slider__item relative w-full h-[calc(100vh-90px)] md:h-[560px]">
                         <Image 
-                        src={`${prefix}/images/slider/slider-3.jpg`} 
+                        src={`${prefix}/images/slider/donut_ride_bentota_1900.jpg`} 
                         sizes="100vw" 
-                        alt="River safari experience in Bentota, Sri Lanka" 
+                        alt="donut ride experience in Bentota, Sri Lanka" 
+                        fill 
+                        className="object-cover" />
+                    </div>
+                </SwiperSlide>
+                <SwiperSlide>
+                    <div className="hero-slider__item relative w-full h-[calc(100vh-90px)] md:h-[560px]">
+                        <Image 
+                        src={`${prefix}/images/slider/sofa-bed-bentota.jpg`} 
+                        sizes="100vw" 
+                        alt="Sofa bed ride experience in Bentota, Sri Lanka" 
                         fill 
                         className="object-cover" />
                     </div>

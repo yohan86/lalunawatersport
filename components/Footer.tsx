@@ -93,7 +93,7 @@ export default function Footer() {
               </li>
               <li className="flex items-center gap-3">
                 <FaEnvelope className="text-cyan-500 shrink-0" size={14} />
-                <a href="mailto:info@lalunabentota.com" className="hover:text-white transition-colors">
+                <a href="mailto:info@lalunawatersportscenter.com" className="hover:text-white transition-colors">
                   info@lalunawatersportscenter.com
                 </a>
               </li>

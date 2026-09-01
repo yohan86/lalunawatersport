@@ -8,7 +8,7 @@ const socialMediaLinks = [
   },
   {
     name: 'Instagram',
-    url: 'https://www.instagram.com/lalunawatersportscenter/',
+    url: 'https://www.instagram.com/lalunawatersportcenter/',
     icon: <FaInstagram size={14} />,
   },
   {
