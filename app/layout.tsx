@@ -7,6 +7,7 @@ import { GoogleAnalytics } from "@next/third-parties/google";
 import NextTopLoader from "nextjs-toploader";
 import SmoothScroll from "@/components/SmoothScroll";
 import JsonLd from "@/components/JsonLd";
+import WhatsAppButton from "@/components/WhatsappButton";
 
 const poppins = Poppins({
   variable: "--font-poppins",
@@ -112,6 +113,9 @@ export default function RootLayout({
         {children}
         <Footer />
         </SmoothScroll>
+        
+        
+        <WhatsAppButton />
         <GoogleAnalytics gaId="G-2G71T8M55M" />
       </body>
     </html>

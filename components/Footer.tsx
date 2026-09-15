@@ -37,11 +37,11 @@ export default function Footer() {
             </h4>
             <ul className="space-y-3.5 text-sm font-semibold">
               {[
-                { name: 'Jet Ski Rentals', href: '#services' },
-                { name: 'Fly Fish Thrill Ride', href: '#services' },
-                { name: 'Deep Sea Diving', href: '#services' },
-                { name: 'Mangrove River Boat Trip', href: '#services' },
-                { name: 'Adventure Combo Packs', href: '#packages' },
+                { name: 'Jet Ski Rentals', href: '/services/jet-ski-bentota/' },
+                { name: 'Fly Fish Thrill Ride', href: '/services/fly-fish-ride-bentota/' },
+                { name: 'Tube & Donut Riding', href: '/services/tube-riding-bentota/' },
+                { name: 'Mangrove River Boat Trip', href: '/services/bentota-river-boat-safari/' },
+                { name: 'Adventure Combo Packs', href: '/packages/' },
                 { name: 'FAQ', href: '/faq' },
               ].map((link, idx) => (
                 <li key={idx}>

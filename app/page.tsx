@@ -12,9 +12,9 @@ const StaticCTA = dynamic(()=> import("@/components/StaticCTA"));
 const baseUrl = "https://lalunawatersportscenter.com";
 
 export const metadata: Metadata = {
-  title: "Water Sports Bentota | Jet Ski, Banana Boat & River Safari | LaLuna",
+  title: "Water Sports Bentota: Jet Ski, Safari & Rides | LaLuna",
   description:
-    "Experience top-rated water sports in Bentota, Sri Lanka. Certified jet ski rentals, calm river safaris, banana boat rides, wakeboarding, and custom family adventure packages on the Bentota River & Ocean.",
+    "Top-rated water sports in Bentota, Sri Lanka. Certified jet ski rentals, river safaris, banana boat rides & family adventure packages. Book your ride!",
   keywords: [
     "Water sports Bentota",
     "LaLuna Water Sports Center",
