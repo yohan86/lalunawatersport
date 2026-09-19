@@ -43,7 +43,7 @@ const HeroSlider = () => {
    <section className="flex w-full max-w-[1600px] m-auto h-[calc(100vh-90px)] md:h-[560px]">
             <div ref={containerRef} className="hero-slider relative w-full h-[460px] md:h-[560px]">
                 <div className="caption absolute flex flex-col w-[90%] items-center text-center justify-center top-20 left-[5%] text-white  z-10 [text-shadow:6px_4px_12px_#0a2668cc]">
-                    <h1 className="font-cursive text-[28px] md:text-[40px] font-medium text-white!">Experience the Best Water Sports in Bentota</h1>
+                    <h1 className="font-cursive text-[28px] md:text-[40px] font-medium text-white!">Experience the Best Water Sports in Bentota, Sri Lanka</h1>
                     <h2 className="font-display text-[35px] leading-10 md:text-[40px] text-white!">Jet Ski • Banana Boat • River Safari • Wakeboarding</h2>
                     <p className="font-cursive text-[28px] md:text-[40px] font-medium "></p>
                     <Link href="/services" aria-label="Explore Water Sports" className="flex text-[16px] mt-6 py-2 px-6 md:py-3 font-bold bg-[#00d6ba] text-white rounded-4xl hover:bg-[#3eb6a6] transition-all duration-300 border-2 border-[#fff] gap-3 hover:gap-4">

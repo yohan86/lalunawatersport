@@ -12,9 +12,9 @@ const StaticCTA = dynamic(()=> import("@/components/StaticCTA"));
 const baseUrl = "https://lalunawatersportscenter.com";
 
 export const metadata: Metadata = {
-  title: "Water Sports Bentota: Jet Ski, Safari & Rides | LaLuna",
+  title: "#1 Water Sports Bentota & River Safari | LaLuna Center Sri Lanka",
   description:
-    "Top-rated water sports in Bentota, Sri Lanka. Certified jet ski rentals, river safaris, banana boat rides & family adventure packages. Book your ride!",
+    "Experience top-rated water sports in Sri Lanka! Book Jet Ski rentals, Donut rides & River Safaris at LaLuna Water Sports Center in Bentota. Chat on WhatsApp!",
   keywords: [
     "Water sports Bentota",
     "LaLuna Water Sports Center",
@@ -24,12 +24,13 @@ export const metadata: Metadata = {
     "Things to do in Bentota",
     "Bentota water sports center",
     "Water Sports Price in Bentota",
+    "Water sports Aluthgama",
   ],
   alternates: {
     canonical: baseUrl,
   },
   openGraph: {
-    title: "Water Sports Bentota | LaLuna Water Sports Center",
+    title: "#1 Water Sports Bentota & River Safari | LaLuna Center Sri Lanka",
     description:
       "The ultimate water sports hub on the Bentota River and Indian Ocean. Book certified jet skiing, river safaris, and activity packages with La Luna team.",
     url: baseUrl,
@@ -47,7 +48,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Water Sports Bentota | LaLuna Water Sports Center",
+    title: "#1 Water Sports Bentota & River Safari | LaLuna Center Sri Lanka",
     description:
       "Experience top-rated water sports in Bentota, Sri Lanka.",
     images: [`${baseUrl}/og-image.jpeg`],
