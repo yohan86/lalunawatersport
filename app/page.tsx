@@ -8,23 +8,26 @@ import dynamic from "next/dynamic";
 const OurServices = dynamic(() => import("@/components/OurServices"));
 const Packages = dynamic(()=> import("@/components/Packages"));
 const StaticCTA = dynamic(()=> import("@/components/StaticCTA"));
+const WhyChooseUs = dynamic(()=>import("@/components/WhyChooseUs"));
 
 const baseUrl = "https://lalunawatersportscenter.com";
 
 export const metadata: Metadata = {
   title: "#1 Water Sports Bentota & River Safari | LaLuna Center Sri Lanka",
   description:
-    "Experience top-rated water sports in Sri Lanka! Book Jet Ski rentals, Donut rides & River Safaris at LaLuna Water Sports Center in Bentota. Chat on WhatsApp!",
+    "Top-rated water sports in Bentota & Aluthgama, Sri Lanka! Best rates for Jet Ski rentals, Sofa rides, Banana Boats & River Safaris. Book at LaLuna today!",
   keywords: [
     "Water sports Bentota",
     "LaLuna Water Sports Center",
     "Jet ski Bentota Sri Lanka",
+    "Jet ski Aluthgama Sri Lanka",
     "Bentota river safari",
     "Water sports packages Sri Lanka",
     "Things to do in Bentota",
     "Bentota water sports center",
     "Water Sports Price in Bentota",
-    "Water sports Aluthgama",
+    "Water Sports Price in Sri Lanka",
+    "Water sports Aluthgama, Sri Lanka",
   ],
   alternates: {
     canonical: baseUrl,
@@ -32,14 +35,14 @@ export const metadata: Metadata = {
   openGraph: {
     title: "#1 Water Sports Bentota & River Safari | LaLuna Center Sri Lanka",
     description:
-      "The ultimate water sports hub on the Bentota River and Indian Ocean. Book certified jet skiing, river safaris, and activity packages with La Luna team.",
+      "Top-rated water sports in Bentota & Aluthgama, Sri Lanka! Best rates for Jet Ski rentals, Sofa rides, Banana Boats & River Safaris. Book at LaLuna today!",
     url: baseUrl,
     siteName: "LaLuna Water Sports Center",
     type: "website",
     images: [
       {
         url: `${baseUrl}/og-image.jpeg`,
-        secureUrl:`${baseUrl}/og-image.jpeg`,
+        secureUrl: `${baseUrl}/og-image.jpeg`,
         width: 1200,
         height: 630,
         alt: "LaLuna Water Sports Center Bentota Sri Lanka",
@@ -50,11 +53,10 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "#1 Water Sports Bentota & River Safari | LaLuna Center Sri Lanka",
     description:
-      "Experience top-rated water sports in Bentota, Sri Lanka.",
+      "Top-rated water sports in Bentota & Aluthgama, Sri Lanka. Book certified Jet Ski rentals, Sofa rides & River Safaris at LaLuna.",
     images: [`${baseUrl}/og-image.jpeg`],
   },
 };
-
 
 export default function Home() {
 
@@ -183,6 +185,7 @@ export default function Home() {
           <AboutIntro />
           <OurServices />
           <Packages />
+          <WhyChooseUs />
           <HomeFaq />
           <StaticCTA />
           <Testimonials />

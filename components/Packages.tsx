@@ -27,14 +27,14 @@ const swiperRef = useRef<SwiperRef>(null);
           <div className="text-left">
             <p className="font-display text-[18px] md:text-[28px] text-site-green">Save Big on Combo Bundles</p>
             <h2 className="text-[20px] leading-8.5 md:text-3xl font-black uppercase tracking-wider mt-2">
-              Best Bentota Water Sports Packages & Deals
+              All-Inclusive Water Sports Packages in Bentota, Sri Lanka
             </h2>
-            <p className="text-slate-400 mt-3 max-w-xl text-base">
-              Explore our most popular water sports packages in Bentota. Combine Jet Ski, Banana Boat, Speed Boat, and more to save on your adventure.
+            <p className="text-slate-400 mt-3 max-w-2xl text-base">
+              Experience the ultimate thrill on the Bentota River and Indian Ocean. Bundle your favorite activities for maximum savings, complete with top-tier Yamaha and Sea-Doo equipment.
             </p>
           </div>
 
-          {/* Navigation Controls tied to Swiper Ref */}
+          {/* Navigation Controls tied to Swiper Ref */ }
           <div className="flex gap-3 h-fit">
             <button 
               onClick={() => swiperRef.current?.swiper.slidePrev()}
