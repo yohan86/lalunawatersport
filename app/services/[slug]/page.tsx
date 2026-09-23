@@ -5,6 +5,7 @@ import { FaClock, FaBolt, FaArrowLeft, FaWhatsapp, FaQuestionCircle } from "reac
 import { prefix } from "@/utils/prefix";
 import { SERVICES_DATA } from "@/data/services";
 import { Metadata } from "next";
+import ActivityWhatsAppButton from "@/components/ActivityWhatsAppButton";
 
 const baseUrl = "https://lalunawatersportscenter.com";
 
@@ -80,12 +81,6 @@ export default async function ServiceDetailPage({ params }: PageProps) {
   const pageUrl = `${baseUrl}/services/${slug}/`;
   const rawImagePath = service.detailimage || service.image || "/og-image.jpeg";
   const fullImageUrl = getFullImageUrl(rawImagePath);
-
-  const whatsappNumber = "94765504541";
-  const whatsappMessage = encodeURIComponent(
-    `Hi LaLuna! I am interested in booking '${service.title}'. Could you please provide the direct rate and availability?`
-  );
-  const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${whatsappMessage}`;
 
   const pageJsonLd = {
   "@context": "https://schema.org",
@@ -249,14 +244,7 @@ export default async function ServiceDetailPage({ params }: PageProps) {
             </div>
 
             <div className="space-y-3">
-              <a
-                href={whatsappUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="btn primary-button w-full flex text-center justify-center items-center shadow-md !bg-emerald-600 gap-2 text-[14px] md:text-[16px] hover:!bg-emerald-700 transition-colors text-base"
-              >
-                <FaWhatsapp className="text-xl" /> Get Rate via WhatsApp
-              </a>
+              <ActivityWhatsAppButton title={service.title} />
               <Link
                 href={`/contact?title=${encodeURIComponent(
                   `Booking inquiry: ${service.title}`
