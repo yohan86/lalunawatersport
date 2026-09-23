@@ -31,7 +31,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
 
   if (!post) {
     return {
-      title: "Water Sports Service | Bentota, Sri Lanka",
+      title: "Water Sports Activities | Bentota and Aluthgama, Sri Lanka",
       description:
         "LaLuna Water Sports Center, Bentota - Explore our range of water sports activities including jet skiing, banana boat rides, river safaris, and more. Book your adventure today!",
     };
@@ -62,7 +62,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
           width: 1200,
           height: 630,
           type: "image/jpeg",
-          alt: post.title,
+          alt: post.imageAlt ||  post.title,
         },
       ],
     },
@@ -118,7 +118,7 @@ export default async function ServiceDetailPage({ params }: PageProps) {
       "@type": "WebPage",
       "@id": `${pageUrl}#webpage`,
       "url": pageUrl,
-      "name": `${service.title} | LaLuna Water Sports Center, Bentota`,
+      "name": `${service.title} | LaLuna Water Sports, Bentota & Aluthgama, Sri Lanka`,      
       "description": service.metaDescription || service.description,
       "isPartOf": {
         "@id": `${baseUrl}/#website`,
@@ -140,10 +140,20 @@ export default async function ServiceDetailPage({ params }: PageProps) {
         "@id": `${baseUrl}/#organization`,
       },
       "image": fullImageUrl,
-      "areaServed": {
-        "@type": "AdministrativeArea",
-        "name": "Bentota, Sri Lanka",
-      },
+      "areaServed": [
+        {
+          "@type": "AdministrativeArea",
+          "name": "Bentota, Sri Lanka",
+        },
+        {
+          "@type": "AdministrativeArea",
+          "name": "Aluthgama, Sri Lanka",
+        },
+        {
+          "@type": "Country",
+          "name": "Sri Lanka",
+        },
+      ],
     },
     ...(service.faqs && service.faqs.length > 0
       ? [

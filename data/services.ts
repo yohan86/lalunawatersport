@@ -10,6 +10,7 @@ export interface Services {
   intensity: "Mild" | "Moderate" | "Extreme";
   image: string;
   detailimage?: string;
+  imageAlt?:string;
   size: "small" | "large";
   metaTitle?: string;
   metaDescription?: string;
@@ -21,38 +22,43 @@ export const SERVICES_DATA: Services[] = [
   // 1. THRILLS (High Speed)
   { 
     id: 1, 
-    title: 'Jet Ski Rental in Bentota',
+    title: 'Jet Ski Ride & Rental in Bentota',
     slug: 'jet-ski-bentota', 
     cat: 'thrill',
-    metaTitle: 'Jet Ski Rental in Bentota | High-Speed Ocean & River Riding',
-    metaDescription: 'Ride high-speed Yamaha and Sea-Doo Waverunners in Bentota River & Lagoon. Safe, guided jet ski rentals at LaLuna Water Sports with certified safety gear included.',
-    description: 'Command a high-performance Yamaha and Sea-Doo Waverunner across the calm Bentota River or open ocean waves with direct operator pricing.',
-    fullDescription: 'Feel the ultimate rush of the Indian Ocean and Bentota Lagoon as you command a high-performance Yamaha and Sea-Doo Waverunner. Speed past palm-fringed coastlines and golden sandbars on a thrilling adventure under the guidance of our certified safety marshals. Book direct with the equipment owner to avoid middleman commissions.', 
-    price: 'Inquire Direct Rate', 
+    metaTitle: 'Jet Ski Ride Bentota & Aluthgama | Rates | LaLuna Sri Lanka',
+    metaDescription: 'Experience the ultimate jet ski ride in Bentota & Aluthgama! Book jet ski directly with LaLuna Water Sports, Sri Lanka. View rates & book via WhatsApp.',
+    description: 'Command a high-performance Yamaha or Sea-Doo Waverunner across the calm Bentota River and Aluthgama lagoon with official operator pricing in Sri Lanka.',
+    fullDescription: 'Feel the ultimate rush on the Bentota River and Aluthgama coastline in Sri Lanka as you command a high-performance Yamaha or Sea-Doo Waverunner. Speed past palm-fringed riversides and open ocean waves on a thrilling adventure guided by certified safety marshals. Book direct with the primary equipment operator for instant confirmation.', 
+    price: 'Official Direct Rate', 
     duration: '15 / 30 / 60 mins', 
     intensity: 'Extreme', 
-    image: `/images/services/jetski_bentota_02_900.jpg`,
-    detailimage: `/images/services/jetski_bentota_900.jpg`,
+    image: '/images/services/jetski_bentota_02_900.jpg',
+    detailimage: '/images/services/jetski_bentota_900.jpg',
+    imageAlt: 'Jet ski ride on Bentota river and ocean in Sri Lanka',
     size: 'large',
     highlights: [
       "High-speed Yamaha and Sea-Doo Waverunners maintained daily",
-      "Choice between calm Bentota River lagoon or open ocean waves",
-      "Certified life jackets and safety briefing included",
-      "Solo riding or tandem ride with a friend/partner",
-      "Direct equipment operator - no driver or broker commissions"
+      "Choice between calm Bentota River & Aluthgama lagoon or open ocean waves",
+      "Certified life jackets and comprehensive safety briefing included",
+      "Solo riding or tandem ride with a friend/partner at no extra charge",
+      "Primary equipment operator with certified safety marshals on site"
     ],
     faqs: [
       {
-        question: "How do I get the best experience and rate for Jet Skiing in Bentota?",
-        answer: "By contacting LaLuna Water Sports Center directly on WhatsApp, you get instant confirmation, customized activity packages, and real-time scheduling updates whether you are visiting independently or traveling with a local guide."
+        question: "How do I get the best rate for a Jet Ski ride in Bentota & Aluthgama?",
+        answer: "Whether you contact LaLuna Water Sports directly on WhatsApp or arrive with your tour driver, you receive official operator rates, instant scheduling, and complete safety gear."
       },
       {
-        question: "Do I need prior experience or a license to ride a Jet Ski?",
-        answer: "No experience or special license is required! Our instructors provide a complete 5-minute safety orientation before you hit the water."
+        question: "Do I need prior experience or a license to ride a Jet Ski in Sri Lanka?",
+        answer: "No experience or special license is required! Our certified instructors provide a complete 5-minute safety orientation before you hit the water."
       },
       {
         question: "Can two people ride on one Jet Ski?",
-        answer: "Yes, our Yamaha Waverunners comfortably accommodate up to two riders (tandem riding) at no extra charge."
+        answer: "Yes, our Yamaha and Sea-Doo Waverunners comfortably accommodate up to two riders (tandem riding) at no extra charge."
+      },
+      {
+        question: "What is included in the Bentota Jet Ski ride package?",
+        answer: "Every rental includes a premium Yamaha or Sea-Doo jet ski, safety briefing, certified life jackets, fuel, and safety boat supervision."
       }
     ]
   },
