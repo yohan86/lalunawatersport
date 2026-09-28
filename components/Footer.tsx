@@ -1,9 +1,22 @@
+"use client"
 import Link from 'next/link';
 import Image from 'next/image';
-import { FaWhatsapp, FaPhoneAlt, FaEnvelope, FaMapMarkerAlt, FaFacebookF, FaYoutube } from 'react-icons/fa';
+import { FaPhoneAlt, FaEnvelope, FaMapMarkerAlt } from 'react-icons/fa';
 import { prefix } from '@/utils/prefix';
 import SocialMedia from './SocialMedia';
+
 export default function Footer() {
+
+  const handleFooterPhoneClick = () => {
+    if (typeof window !== "undefined" && window.gtag) {
+      window.gtag("event", "generate_lead", {
+        event_category: "Conversion",
+        event_label: "Phone Call - Footer",
+        method: "Direct Call",
+        value: 1,
+      });
+    }
+  };
   return (
     <footer className="bg-slate-950 text-slate-400 border-t border-slate-900 pt-20 pb-8 px-6 md:px-12">
       <div className="max-w-7xl mx-auto">
@@ -87,7 +100,9 @@ export default function Footer() {
               </li>
               <li className="flex items-center gap-3">
                 <FaPhoneAlt className="text-cyan-500 shrink-0" size={14} />
-                <a href="tel:+94765504541" className="hover:text-white transition-colors">
+                <a href="tel:+94765504541" className="hover:text-white transition-colors"
+                onClick={handleFooterPhoneClick}
+                >
                   +94 7655 04541
                 </a>
               </li>

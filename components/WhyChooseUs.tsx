@@ -4,6 +4,16 @@ import { useState, useEffect, useRef } from 'react';
 import Link from 'next/link';
 import { FaWhatsapp } from 'react-icons/fa';
 
+declare global {
+  interface Window {
+    gtag?: (
+      command: string,
+      targetId: string,
+      config?: Record<string, unknown>
+    ) => void;
+  }
+}
+
 export default function WhyChooseUs() {
   const sectionRef = useRef<HTMLElement>(null);
   const [offsetY, setOffsetY] = useState(0);
@@ -60,6 +70,17 @@ export default function WhyChooseUs() {
         'Situated right on the calm riverbank with complimentary pickup transfers for guests at nearby hotels.',
     },
   ];
+
+   const handleClick = () => {
+        // Fire GA4 Key Event / Conversion type-safely
+        if (typeof window !== "undefined" && window.gtag) {
+        window.gtag("event", "generate_lead", {
+            event_category: "Conversion",
+            event_label: `WhatsApp - why book with`,
+            value: 1,
+        });
+        }
+    };
 
   return (
     <section
@@ -149,7 +170,8 @@ export default function WhyChooseUs() {
                 href="https://wa.me/94765504541?text=Hi%20LaLuna!%20I%20would%20like%20to%20inquire%20about%20water%20sports%20packages."
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex gap-3 items-center w-full px-8 py-4 rounded-xl bg-slate-900/80 hover:bg-slate-800 border border-cyan-500/40 text-cyan-400 font-extrabold text-base transition-all duration-300 text-center backdrop-blur-md"
+                onClick={handleClick}
+                className="flex gap-3 items-center justify-center w-full px-8 py-4 rounded-xl bg-slate-900/80 hover:bg-slate-800 border border-cyan-500/40 text-cyan-400 font-extrabold text-base transition-all duration-300 text-center backdrop-blur-md"
               >
                 <FaWhatsapp size={16} className="text-emerald-400" />
                 Chat on WhatsApp

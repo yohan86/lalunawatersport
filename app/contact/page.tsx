@@ -4,6 +4,7 @@ import ContactForm from "@/components/ContactForm";
 import SocialMedia from "@/components/SocialMedia";
 import GoogleMap from "@/components/GoogleMap";
 import { Metadata } from "next";
+import PhoneClickable from "@/components/PhoneClickable";
 
 const baseUrl = "https://lalunawatersportscenter.com";
 // --- NEXT.JS METADATA ---
@@ -124,7 +125,7 @@ export default function ContactPage() {
               <div className="w-[95%] md:w-[50%] mt-12 md:ml-12 md:pl-10 md:border-l-2 border-gray-200">
                 <ul className="flex flex-col items-start">
                   <li className="font-semibold">Phone</li>
-                  <li><a href="tel:+94765504541">+94 76 550 45 41</a></li>
+                  <li><PhoneClickable phone="tel:+94765504541" label="+94 76 550 45 41" /></li>
                   <li className="font-semibold mt-4">Email</li>
                   <li><a href="mailto:info@lalunawatersportscenter.com">info@lalunawatersportscenter.com</a></li>
                   <li className="font-semibold mt-4">Address</li>

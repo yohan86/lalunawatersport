@@ -62,9 +62,11 @@ const FormContent = () => {
         setFormStatus("success");
 
         sendGAEvent("event", "generate_lead", {
-            event_category: "Contact Form",
+            event_category: "Conversion",
+            event_label: `Contact Form - ${formData.subject}`,
             service_requested: formData.subject,
             method: "WhatsApp Redirect",
+            value: 1,
         });
 
         setFormData({

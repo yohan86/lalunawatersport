@@ -6,6 +6,15 @@ interface WhatsAppButtonProps {
   phoneNumber?: string;
   defaultMessage?: string;
 }
+declare global {
+  interface Window {
+    gtag?: (
+      command: string,
+      targetId: string,
+      config?: Record<string, unknown>
+    ) => void;
+  }
+}
 
 export default function WhatsAppButton({
   phoneNumber = "94765504541",
@@ -16,6 +25,17 @@ export default function WhatsAppButton({
   // Encode message for standard WhatsApp URL format
   const encodedMessage = encodeURIComponent(defaultMessage);
   const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodedMessage}`;
+
+  const handleClick = () => {
+      // Fire GA4 Key Event / Conversion type-safely
+      if (typeof window !== "undefined" && window.gtag) {
+      window.gtag("event", "generate_lead", {
+          event_category: "Conversion",
+          event_label: `WhatsApp - Help desk`,
+          value: 1,
+      });
+      }
+  };
 
   return (
     <div className="fixed bottom-20 right-6 z-50 flex items-end gap-3 pointer-events-auto">
@@ -49,6 +69,7 @@ export default function WhatsAppButton({
         target="_blank"
         rel="noopener noreferrer"
         aria-label="Chat on WhatsApp"
+        onClick={handleClick}
         className="group relative flex items-center justify-center w-14 h-14 bg-[#25D366] hover:bg-[#20ba5a] text-white rounded-full shadow-[0_8px_25px_rgba(37,211,102,0.4)] transition-all duration-300 hover:scale-105 active:scale-95 border-2 border-[#0D1A12]"
       >
         {/* Ambient Pulse Ring */}

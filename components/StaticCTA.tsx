@@ -1,10 +1,31 @@
+"use client"
 import Image from 'next/image';
 import { FaCalendarCheck, FaWhatsapp } from 'react-icons/fa';
 import { prefix } from '@/utils/prefix';
 import Link from 'next/link';
 
+declare global {
+  interface Window {
+    gtag?: (
+      command: string,
+      targetId: string,
+      config?: Record<string, unknown>
+    ) => void;
+  }
+}
 
 export default function StaticCTA() {
+  const handleClick = () => {
+      // Fire GA4 Key Event / Conversion type-safely
+      if (typeof window !== "undefined" && window.gtag) {
+      window.gtag("event", "generate_lead", {
+          event_category: "Conversion",
+          event_label: `WhatsApp - why book with`,
+          value: 1,
+      });
+      }
+  };
+
   return (
     <section className="relative overflow-hidden">
       
@@ -60,6 +81,7 @@ export default function StaticCTA() {
               target="_blank"
               rel="noopener noreferrer"
               aria-label="Send a WhatsApp Message to Book"
+              onClick={handleClick}
               className="inline-flex items-center justify-center gap-3 px-8 py-4.5 bg-slate-950/80 hover:bg-slate-950 text-emerald-400 hover:text-emerald-300 border border-emerald-500/30 hover:border-emerald-500/60 font-black uppercase text-xs tracking-widest rounded-xl transition-all duration-300 backdrop-blur-md cursor-pointer"
             >
               <FaWhatsapp size={16} className="text-emerald-400" />

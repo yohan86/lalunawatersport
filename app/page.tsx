@@ -18,6 +18,7 @@ export const metadata: Metadata = {
     "Top-rated water sports in Bentota & Aluthgama, Sri Lanka! Best rates for Jet Ski rentals, Sofa rides, Banana Boats & River Safaris. Book at LaLuna today!",
   keywords: [
     "Water sports Bentota",
+    "Water sports and activities in Colombo",
     "LaLuna Water Sports Center",
     "Jet ski Bentota Sri Lanka",
     "Jet ski Aluthgama Sri Lanka",
@@ -28,6 +29,8 @@ export const metadata: Metadata = {
     "Water Sports Price in Bentota",
     "Water Sports Price in Sri Lanka",
     "Water sports Aluthgama, Sri Lanka",
+    "Water sports and activities near me",
+    "Water Sports Adventure bentota, Sri Lanka",
   ],
   alternates: {
     canonical: baseUrl,
@@ -93,6 +96,10 @@ export default function Home() {
           "addressRegion": "Southern Province",
           "postalCode": "80500",
           "addressCountry": "LK"
+        },
+        "containedInPlace": {
+          "@type": "TouristDestination",
+          "name": "Bentota"
         },
         "geo": {
           "@type": "GeoCoordinates",

@@ -12,8 +12,9 @@ export const metadata : Metadata = {
   description:`Explore top water sports activities in Bentota & Aluthgama, Sri Lanka! Jet ski rides, river safaris, banana boats, & wakeboarding. View official rates & book via WhatsApp.`,
   keywords: [
   "Bentota water sports activities",
-  "Water activities Aluthgama",
-  "Water sports Sri Lanka",
+  "Water sports & activities Aluthgama",
+  "Water sports in Sri Lanka",
+  "Water sports list",
   
   "Jet ski ride & rental Bentota",
   "Bentota river safari booking",
@@ -32,7 +33,7 @@ export const metadata : Metadata = {
     title: "Water Sports Activities Bentota & Aluthgama | LaLuna Sri Lanka",
     description:`From high-speed jet ski rides on the ocean to peaceful Bentota River safaris. Explore our water sports packages & official operator rates.`,
     url: `${baseUrl}/services/`,
-    siteName: "La Luna Water Sports Center",
+    siteName: "LaLuna Water Sports Center",
     type: "website",
     images: [
       {

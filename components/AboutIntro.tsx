@@ -157,7 +157,7 @@ const AboutIntro = () => {
         <div className="image relative w-36 h-36 md:w-60 md:h-60 rounded-full overflow-hidden shrink-0 justify-self-center">
           <Image
             src={`${prefix}/images/sports/donut-ride-bentota.jpg`}
-            alt="Donut ride adventure in Bentota at LaLuna Water Sports Center"
+            alt="Donut ride adventure in Bentota at LaLuna Water Sports Center,Sri Lanka"
             fill
             className="object-cover"
           />
@@ -189,7 +189,7 @@ const AboutIntro = () => {
         >
           <Image
             src={`${prefix}/images/sports/sofa-bed.jpg`}
-            alt="Sofa bed activities in Bentota"
+            alt="Sofa bed activities in Bentota,Sri Lanka"
             fill
             className="object-cover"
           />
@@ -205,7 +205,7 @@ const AboutIntro = () => {
         <div className="image relative w-36 h-36 md:w-60 md:h-60 rounded-full overflow-hidden shrink-0 justify-self-center -mt-6 md:-mt-12">
           <Image
             src={`${prefix}/images/sports/water-sport-jetski-bentota.jpg`}
-            alt="Jet Ski adventure in Bentota at LaLuna Water Sports Center"
+            alt="Jet Ski adventure in Bentota at LaLuna Water Sports Center, Sri Lanka"
             fill
             className="object-cover"
           />
@@ -219,12 +219,12 @@ const AboutIntro = () => {
         </h2>
         <h3 className="text-xl font-semibold mb-8 text-[#54686e]!">
           Unleash your inner adventurer with Sri Lanka’s premier water sports
-          experience. Jet ski, flyboard, and dive into pure excitement
+          experience. Jet ski, flyboard, tube ride and dive into pure excitement
         </h3>
         <p className="text-gray-700 mb-6">
-          At La Luna, we are passionate about creating unforgettable
+          At LaLuna, we are passionate about creating unforgettable water sports 
           experiences for our clients. With years of expertise in the
-          industry, we specialize in crafting unique and personalized events
+          industry, we specialize in crafting unique and personalized water sport events
           that leave a lasting impression.
         </p>
         <Link

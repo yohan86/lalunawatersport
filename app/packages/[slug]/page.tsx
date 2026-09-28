@@ -1,3 +1,4 @@
+import ActivityWhatsAppButton from "@/components/ActivityWhatsAppButton";
 import { PACKAGES_DATA } from "@/data/packages";
 import { prefix } from "@/utils/prefix";
 import Image from "next/image";
@@ -190,7 +191,8 @@ const PackageDetails = async ({params}:{params: Promise<{slug:string}>}) => {
             </div>
 
             {/* Direct Booking Route Button */}
-            <div className="flex">
+            <div className="flex flex-col gap-4">
+              <ActivityWhatsAppButton title={post.title} />
               <Link
                 href={`/contact?title=Booking+inquiry:+${encodeURIComponent(post.title)}`}
                 className="btn primary-button w-full items-center justify-center"

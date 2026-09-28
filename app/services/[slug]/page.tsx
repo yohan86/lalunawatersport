@@ -1,11 +1,12 @@
 import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { FaClock, FaBolt, FaArrowLeft, FaWhatsapp, FaQuestionCircle } from "react-icons/fa";
+import { FaClock, FaBolt, FaArrowLeft, FaQuestionCircle } from "react-icons/fa";
 import { prefix } from "@/utils/prefix";
 import { SERVICES_DATA } from "@/data/services";
 import { Metadata } from "next";
 import ActivityWhatsAppButton from "@/components/ActivityWhatsAppButton";
+import AccordionList from "@/components/AccordionList";
 
 const baseUrl = "https://lalunawatersportscenter.com";
 
@@ -73,7 +74,6 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
 export default async function ServiceDetailPage({ params }: PageProps) {
   const { slug } = await params;
   const service = SERVICES_DATA.find((item) => item.slug === slug);
-
   if (!service) {
     notFound();
   }
@@ -98,7 +98,7 @@ export default async function ServiceDetailPage({ params }: PageProps) {
         {
           "@type": "ListItem",
           "position": 2,
-          "name": "Services",
+          "name": "Water Sports Activities",
           "item": `${baseUrl}/services/`,
         },
         {
@@ -115,6 +115,10 @@ export default async function ServiceDetailPage({ params }: PageProps) {
       "url": pageUrl,
       "name": `${service.title} | LaLuna Water Sports, Bentota & Aluthgama, Sri Lanka`,      
       "description": service.metaDescription || service.description,
+      "speakable": {
+        "@type": "SpeakableSpecification",
+        "cssSelector": ["h1", ".speakable-summary", ".speakable-answer"]
+      },
       "isPartOf": {
         "@id": `${baseUrl}/#website`,
       },
@@ -136,14 +140,14 @@ export default async function ServiceDetailPage({ params }: PageProps) {
       },
       "image": fullImageUrl,
       "areaServed": [
-        {
-          "@type": "AdministrativeArea",
-          "name": "Bentota, Sri Lanka",
-        },
-        {
-          "@type": "AdministrativeArea",
-          "name": "Aluthgama, Sri Lanka",
-        },
+        { "@type": "AdministrativeArea", "name": "Bentota, Sri Lanka" },
+        { "@type": "AdministrativeArea", "name": "Aluthgama, Sri Lanka" },
+        { "@type": "AdministrativeArea", "name": "Beruwala, Sri Lanka" },
+        { "@type": "AdministrativeArea", "name": "Kalutara, Sri Lanka" },
+        { "@type": "AdministrativeArea", "name": "Hikkaduwa, Sri Lanka" },
+        { "@type": "AdministrativeArea", "name": "Galle, Sri Lanka" },
+        { "@type": "AdministrativeArea", "name": "Mirissa, Sri Lanka" },
+        { "@type": "AdministrativeArea", "name": "Colombo, Sri Lanka" },
         {
           "@type": "Country",
           "name": "Sri Lanka",
@@ -186,11 +190,39 @@ export default async function ServiceDetailPage({ params }: PageProps) {
       </div>
 
       <section className="max-w-5xl mx-auto px-4 mt-8">
+
+        <h1 className="block md:hidden text-3xl md:text-4xl font-bold text-gray-900">
+            {service.title}
+        </h1>
+        <div className="my-8 rounded-2xl border border-gray-100 bg-blue-50/50 p-6 shadow-sm">
+          <h3 className="mb-4 text-xs font-bold uppercase tracking-wider text-blue-600">
+            ⚡ Experience Snapshot
+          </h3>
+          <div className="grid grid-cols-2 gap-4 text-sm md:grid-cols-4">
+            <div>
+              <span className="block text-xs text-gray-500">Duration</span>
+              <span className="font-semibold text-gray-900">{service.duration}</span>
+            </div>
+            <div>
+              <span className="block text-xs text-gray-500">Intensity</span>
+              <span className="font-semibold text-gray-900">{service.intensity}</span>
+            </div>
+            <div>
+              <span className="block text-xs text-gray-500">Location</span>
+              <span className="font-semibold text-gray-900">Bentota & Aluthgama</span>
+            </div>
+            <div>
+              <span className="block text-xs text-gray-500">Pricing</span>
+              <span className="font-semibold text-gray-900">Direct Operator Rates</span>
+            </div>
+          </div>
+        </div>
+
         <div className="bg-white rounded-3xl overflow-hidden border border-gray-100 shadow-sm grid grid-cols-1 md:grid-cols-2 gap-0">
           <div className="relative w-full h-[350px] md:h-full min-h-[400px] bg-gray-200">
             <Image
               src={`${prefix}${rawImagePath}`}
-              alt={service.title}
+              alt={service.imageAlt || service.title}
               fill
               className="object-cover"
               priority
@@ -202,10 +234,10 @@ export default async function ServiceDetailPage({ params }: PageProps) {
               <span className="inline-block px-3 py-1 text-xs font-bold uppercase tracking-wider rounded-full border bg-teal-50 text-teal-700 border-teal-100">
                 {service.intensity} Intensity
               </span>
-              <h1 className="text-3xl md:text-4xl font-bold text-gray-900">
+              <h1 className="hidden md:block text-3xl md:text-4xl font-bold text-gray-900">
                 {service.title}
               </h1>
-              <p className="leading-relaxed text-gray-600">
+              <p className="speakable-summary leading-relaxed text-gray-600">
                 {service.fullDescription || service.description}
               </p>
 
@@ -271,26 +303,8 @@ export default async function ServiceDetailPage({ params }: PageProps) {
           </div>
 
           {service.faqs && service.faqs.length > 0 && (
-            <div className="pt-6 border-t border-gray-100">
-              <h2 className="text-2xl font-bold text-gray-900 mb-6 flex items-center gap-2">
-                <FaQuestionCircle className="text-teal-500" /> Frequently Asked Questions
-              </h2>
-              <div className="space-y-4">
-                {service.faqs.map((faq, index) => (
-                  <div
-                    key={index}
-                    className="bg-gray-50 rounded-2xl p-6 border border-gray-100"
-                  >
-                    <h3 className="font-semibold text-gray-900 text-base md:text-lg mb-2">
-                      {faq.question}
-                    </h3>
-                    <p className="text-gray-600 text-sm md:text-base leading-relaxed">
-                      {faq.answer}
-                    </p>
-                  </div>
-                ))}
-              </div>
-            </div>
+            <AccordionList itemlist={service.faqs} />
+            
           )}
         </div>
       </section>
