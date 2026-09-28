@@ -5,6 +5,7 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
+    "indexnow": "npx tsx scripts/indexnow.ts",
     "start": "next start",
     "lint": "eslint"
   },
